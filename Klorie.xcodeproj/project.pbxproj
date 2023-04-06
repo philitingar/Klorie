@@ -1,0 +1,623 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		266F679E29DDD06200A2A92C /* KlorieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266F679D29DDD06200A2A92C /* KlorieApp.swift */; };
+		266F67A029DDD06200A2A92C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266F679F29DDD06200A2A92C /* HomeView.swift */; };
+		266F67A229DDD06400A2A92C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 266F67A129DDD06400A2A92C /* Assets.xcassets */; };
+		266F67A529DDD06400A2A92C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 266F67A429DDD06400A2A92C /* Preview Assets.xcassets */; };
+		266F67AF29DDD06500A2A92C /* KlorieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266F67AE29DDD06500A2A92C /* KlorieTests.swift */; };
+		266F67B929DDD06500A2A92C /* KlorieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266F67B829DDD06500A2A92C /* KlorieUITests.swift */; };
+		266F67BB29DDD06500A2A92C /* KlorieUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266F67BA29DDD06500A2A92C /* KlorieUITestsLaunchTests.swift */; };
+		266F67C829DDD8D700A2A92C /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266F67C729DDD8D700A2A92C /* BackgroundView.swift */; };
+		266F67CC29DDDBBC00A2A92C /* NutrientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266F67CB29DDDBBC00A2A92C /* NutrientsView.swift */; };
+		266F681229DDF77C00A2A92C /* SwiftPieChart in Frameworks */ = {isa = PBXBuildFile; productRef = 266F681129DDF77C00A2A92C /* SwiftPieChart */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		266F67AB29DDD06500A2A92C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 266F679229DDD06200A2A92C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 266F679929DDD06200A2A92C;
+			remoteInfo = Klorie;
+		};
+		266F67B529DDD06500A2A92C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 266F679229DDD06200A2A92C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 266F679929DDD06200A2A92C;
+			remoteInfo = Klorie;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		266F679A29DDD06200A2A92C /* Klorie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Klorie.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		266F679D29DDD06200A2A92C /* KlorieApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlorieApp.swift; sourceTree = "<group>"; };
+		266F679F29DDD06200A2A92C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		266F67A129DDD06400A2A92C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		266F67A429DDD06400A2A92C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		266F67AA29DDD06500A2A92C /* KlorieTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KlorieTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		266F67AE29DDD06500A2A92C /* KlorieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlorieTests.swift; sourceTree = "<group>"; };
+		266F67B429DDD06500A2A92C /* KlorieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KlorieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		266F67B829DDD06500A2A92C /* KlorieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlorieUITests.swift; sourceTree = "<group>"; };
+		266F67BA29DDD06500A2A92C /* KlorieUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlorieUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		266F67C729DDD8D700A2A92C /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
+		266F67CB29DDDBBC00A2A92C /* NutrientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientsView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		266F679729DDD06200A2A92C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				266F681229DDF77C00A2A92C /* SwiftPieChart in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		266F67A729DDD06500A2A92C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		266F67B129DDD06500A2A92C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		266F679129DDD06200A2A92C = {
+			isa = PBXGroup;
+			children = (
+				266F679C29DDD06200A2A92C /* Klorie */,
+				266F67AD29DDD06500A2A92C /* KlorieTests */,
+				266F67B729DDD06500A2A92C /* KlorieUITests */,
+				266F679B29DDD06200A2A92C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		266F679B29DDD06200A2A92C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				266F679A29DDD06200A2A92C /* Klorie.app */,
+				266F67AA29DDD06500A2A92C /* KlorieTests.xctest */,
+				266F67B429DDD06500A2A92C /* KlorieUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		266F679C29DDD06200A2A92C /* Klorie */ = {
+			isa = PBXGroup;
+			children = (
+				266F679D29DDD06200A2A92C /* KlorieApp.swift */,
+				266F679F29DDD06200A2A92C /* HomeView.swift */,
+				266F67C729DDD8D700A2A92C /* BackgroundView.swift */,
+				266F67CB29DDDBBC00A2A92C /* NutrientsView.swift */,
+				266F67A129DDD06400A2A92C /* Assets.xcassets */,
+				266F67A329DDD06400A2A92C /* Preview Content */,
+			);
+			path = Klorie;
+			sourceTree = "<group>";
+		};
+		266F67A329DDD06400A2A92C /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				266F67A429DDD06400A2A92C /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		266F67AD29DDD06500A2A92C /* KlorieTests */ = {
+			isa = PBXGroup;
+			children = (
+				266F67AE29DDD06500A2A92C /* KlorieTests.swift */,
+			);
+			path = KlorieTests;
+			sourceTree = "<group>";
+		};
+		266F67B729DDD06500A2A92C /* KlorieUITests */ = {
+			isa = PBXGroup;
+			children = (
+				266F67B829DDD06500A2A92C /* KlorieUITests.swift */,
+				266F67BA29DDD06500A2A92C /* KlorieUITestsLaunchTests.swift */,
+			);
+			path = KlorieUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		266F679929DDD06200A2A92C /* Klorie */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 266F67BE29DDD06500A2A92C /* Build configuration list for PBXNativeTarget "Klorie" */;
+			buildPhases = (
+				266F679629DDD06200A2A92C /* Sources */,
+				266F679729DDD06200A2A92C /* Frameworks */,
+				266F679829DDD06200A2A92C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Klorie;
+			packageProductDependencies = (
+				266F681129DDF77C00A2A92C /* SwiftPieChart */,
+			);
+			productName = Klorie;
+			productReference = 266F679A29DDD06200A2A92C /* Klorie.app */;
+			productType = "com.apple.product-type.application";
+		};
+		266F67A929DDD06500A2A92C /* KlorieTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 266F67C129DDD06500A2A92C /* Build configuration list for PBXNativeTarget "KlorieTests" */;
+			buildPhases = (
+				266F67A629DDD06500A2A92C /* Sources */,
+				266F67A729DDD06500A2A92C /* Frameworks */,
+				266F67A829DDD06500A2A92C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				266F67AC29DDD06500A2A92C /* PBXTargetDependency */,
+			);
+			name = KlorieTests;
+			productName = KlorieTests;
+			productReference = 266F67AA29DDD06500A2A92C /* KlorieTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		266F67B329DDD06500A2A92C /* KlorieUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 266F67C429DDD06500A2A92C /* Build configuration list for PBXNativeTarget "KlorieUITests" */;
+			buildPhases = (
+				266F67B029DDD06500A2A92C /* Sources */,
+				266F67B129DDD06500A2A92C /* Frameworks */,
+				266F67B229DDD06500A2A92C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				266F67B629DDD06500A2A92C /* PBXTargetDependency */,
+			);
+			name = KlorieUITests;
+			productName = KlorieUITests;
+			productReference = 266F67B429DDD06500A2A92C /* KlorieUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		266F679229DDD06200A2A92C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					266F679929DDD06200A2A92C = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					266F67A929DDD06500A2A92C = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 266F679929DDD06200A2A92C;
+					};
+					266F67B329DDD06500A2A92C = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 266F679929DDD06200A2A92C;
+					};
+				};
+			};
+			buildConfigurationList = 266F679529DDD06200A2A92C /* Build configuration list for PBXProject "Klorie" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 266F679129DDD06200A2A92C;
+			packageReferences = (
+				266F681029DDF77C00A2A92C /* XCRemoteSwiftPackageReference "SwiftPieChart" */,
+			);
+			productRefGroup = 266F679B29DDD06200A2A92C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				266F679929DDD06200A2A92C /* Klorie */,
+				266F67A929DDD06500A2A92C /* KlorieTests */,
+				266F67B329DDD06500A2A92C /* KlorieUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		266F679829DDD06200A2A92C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				266F67A529DDD06400A2A92C /* Preview Assets.xcassets in Resources */,
+				266F67A229DDD06400A2A92C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		266F67A829DDD06500A2A92C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		266F67B229DDD06500A2A92C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		266F679629DDD06200A2A92C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				266F67C829DDD8D700A2A92C /* BackgroundView.swift in Sources */,
+				266F67CC29DDDBBC00A2A92C /* NutrientsView.swift in Sources */,
+				266F67A029DDD06200A2A92C /* HomeView.swift in Sources */,
+				266F679E29DDD06200A2A92C /* KlorieApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		266F67A629DDD06500A2A92C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				266F67AF29DDD06500A2A92C /* KlorieTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		266F67B029DDD06500A2A92C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				266F67BB29DDD06500A2A92C /* KlorieUITestsLaunchTests.swift in Sources */,
+				266F67B929DDD06500A2A92C /* KlorieUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		266F67AC29DDD06500A2A92C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 266F679929DDD06200A2A92C /* Klorie */;
+			targetProxy = 266F67AB29DDD06500A2A92C /* PBXContainerItemProxy */;
+		};
+		266F67B629DDD06500A2A92C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 266F679929DDD06200A2A92C /* Klorie */;
+			targetProxy = 266F67B529DDD06500A2A92C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		266F67BC29DDD06500A2A92C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		266F67BD29DDD06500A2A92C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		266F67BF29DDD06500A2A92C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Klorie/Preview Content\"";
+				DEVELOPMENT_TEAM = V6R32R32N9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = timeaBartha.Klorie;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		266F67C029DDD06500A2A92C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Klorie/Preview Content\"";
+				DEVELOPMENT_TEAM = V6R32R32N9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = timeaBartha.Klorie;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		266F67C229DDD06500A2A92C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V6R32R32N9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = timeaBartha.KlorieTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Klorie.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Klorie";
+			};
+			name = Debug;
+		};
+		266F67C329DDD06500A2A92C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V6R32R32N9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = timeaBartha.KlorieTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Klorie.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Klorie";
+			};
+			name = Release;
+		};
+		266F67C529DDD06500A2A92C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V6R32R32N9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = timeaBartha.KlorieUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Klorie;
+			};
+			name = Debug;
+		};
+		266F67C629DDD06500A2A92C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = V6R32R32N9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = timeaBartha.KlorieUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Klorie;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		266F679529DDD06200A2A92C /* Build configuration list for PBXProject "Klorie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				266F67BC29DDD06500A2A92C /* Debug */,
+				266F67BD29DDD06500A2A92C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		266F67BE29DDD06500A2A92C /* Build configuration list for PBXNativeTarget "Klorie" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				266F67BF29DDD06500A2A92C /* Debug */,
+				266F67C029DDD06500A2A92C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		266F67C129DDD06500A2A92C /* Build configuration list for PBXNativeTarget "KlorieTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				266F67C229DDD06500A2A92C /* Debug */,
+				266F67C329DDD06500A2A92C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		266F67C429DDD06500A2A92C /* Build configuration list for PBXNativeTarget "KlorieUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				266F67C529DDD06500A2A92C /* Debug */,
+				266F67C629DDD06500A2A92C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		266F681029DDF77C00A2A92C /* XCRemoteSwiftPackageReference "SwiftPieChart" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/philitingar/SwiftPieChart.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		266F681129DDF77C00A2A92C /* SwiftPieChart */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 266F681029DDF77C00A2A92C /* XCRemoteSwiftPackageReference "SwiftPieChart" */;
+			productName = SwiftPieChart;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 266F679229DDD06200A2A92C /* Project object */;
+}

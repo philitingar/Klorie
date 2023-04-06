@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "swiftpiechart",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/philitingar/SwiftPieChart.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "718c06e745c544d093f20467f30406258e7e7a52"
+      }
+    }
+  ],
+  "version" : 2
+}
