@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "animatedtabbar",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/exyte/AnimatedTabBar.git",
+      "state" : {
+        "revision" : "6d969be00b048f5ce34874244255b2c31704c27a",
+        "version" : "0.0.1"
+      }
+    },
+    {
       "identity" : "swiftpiechart",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/philitingar/SwiftPieChart.git",
