@@ -13,6 +13,10 @@ extension View{
     }
 }
 struct CalculatorView: View {
+    
+    @EnvironmentObject var vm : MealViewModel
+    
+    
     @State var age = ""
     @State var height:String = ""
     @State var weight:String = ""
@@ -48,43 +52,118 @@ struct CalculatorView: View {
             ZStack {
                 Color(red: 41/255, green: 62/255, blue: 87/255)
                     .ignoresSafeArea()
-                VStack {
-                    
+                
+                ScrollView {
                     VStack {
-                        
-                        TextFieldInputsCalcButton
-                        
-                        Button{
-                          
-                            resetTextField()
-                            showAlert.toggle()
-                        }label: {
-                            Text("Calculate")
-                                .foregroundColor(.white)
-                                .font(.headline)
-                                .frame(height:55)
-                                .frame(maxWidth:120)
-                                .background(textFieldisValid() ?
-                                            Color(red: 175/255, green: 101/255, blue: 181/255) : Color.gray)
-                                .cornerRadius(10)
-                                .padding()
+                        VStack {
                             
+                            TextFieldInputsCalcButton
                             
+                            Button{
+                                kcalCalculator(gender: gender,
+                                               activity: activity)
+                                
+                                resetTextField()
+                                
+                                showAlert.toggle()
+                                
+                            } label: {
+                                Text("Calculate")
+                                    .foregroundColor(.white)
+                                    .font(.headline)
+                                    .frame(height:55)
+                                    .frame(maxWidth:120)
+                                    .background(textFieldisValid() ?
+                                                Color(red: 175/255, green: 101/255, blue: 181/255) : Color.gray)
+                                    .cornerRadius(10)
+                                    .padding()
+                                
+                                
+                            }
+                            .disabled(!textFieldisValid())
+                            .alert("Recommended daily calories:", isPresented: $showAlert, actions: {
+                                
+                            }, message: {
+                                Text("\(vm.userDailyCal) kcal")
+                            })
+                            TargetUserKcalSection
                         }
-                        
-                        TargetUserKcalSection
+                        .padding()
+                        Spacer()
                     }
-                    .padding()
-                    Spacer()
                 }
                 
-            }.navigationTitle("Calorie Calculator")
+            }
+            .onTapGesture {
+                self.dismissKeyBoard()
+            }
+            .navigationTitle("Calorie Calculator")
                 .sheet(isPresented: $showInfoSheet) {
                     InfoSheetView()
                 }
-                
         }
     }
+    
+    func kcalCalculator(gender:String,activity:String) {
+        if textFieldisValid() {
+            var res = 0.0
+            if gender == "Male"{
+                let w = (13.75 * (Double(weight) ?? 0.0))
+                let h = (5.003 * (Double(height) ?? 0.0))
+                let a = (6.755 * (Double(age) ?? 0.0))
+                let total = ((66.47  + w + h) - a)
+                
+                switch(activity) {
+                case "Sedentary":
+                    res = total * 1.2
+                    break
+                case "Lightly active":
+                    res = total * 1.375
+                    break
+                case "Moderately active":
+                    res = total * 1.55
+                    break
+                case "Active":
+                    res = total * 1.725
+                    break
+                default:
+                    // "Very active"
+                    res = total * 1.9
+                }
+                vm.userDailyCal =
+                String(format: "%.0f", res)
+                vm.addKcal(kcal: vm.userDailyCal)
+            } else {
+                let w = (9.563 * (Double(weight) ?? 0.0))
+                let h = (1.850 * (Double(height) ?? 0.0))
+                let a = (4.676 * (Double(age) ?? 0.0))
+                let total = ((655.1 + w + h) - a)
+                
+                switch(activity){
+                case "Sedentary":
+                    res = total * 1.2
+                    break
+                case "Lightly active":
+                    res = total * 1.375
+                    break
+                case "Moderately active":
+                    res = total * 1.55
+                    break
+                case "Active":
+                    res = total * 1.725
+                    break
+                default:
+                    // "Very active"
+                    res = total * 1.9
+                }
+                
+                vm.userDailyCal = String(format: "%.0f", res)
+                vm.addKcal(kcal: vm.userDailyCal)
+            }
+            
+        }
+    }
+    
     func textFieldisValid() -> Bool {
         if(age.count < 2 || weight.count < 2 || height.count < 3){
             return false
@@ -109,6 +188,7 @@ struct CalculatorView: View {
 struct CalculatorView_Previews: PreviewProvider {
     static var previews: some View {
         CalculatorView()
+            .environmentObject(MealViewModel())
     }
 }
 
