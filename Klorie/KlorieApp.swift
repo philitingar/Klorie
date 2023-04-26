@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct KlorieApp: App {
+    @StateObject var vm : MealViewModel = MealViewModel()
     var body: some Scene {
         WindowGroup {
             TabBarView()
+                .environmentObject(vm)
+                
         }
     }
 }
