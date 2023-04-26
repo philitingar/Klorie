@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject private var vm: MealViewModel
     
     init() {
         UITabBar.appearance().isHidden = true
@@ -27,6 +28,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+            .environmentObject(MealViewModel())
     }
 }
 

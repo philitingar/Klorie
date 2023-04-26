@@ -171,7 +171,7 @@ struct CalculatorView: View {
         return true
     }
     func directKcalTextFieldValidation() -> Bool {
-        if(userTargetKcal.count < 3){
+        if(userTargetKcal.count < 3) {
             return false
         }
         return true
@@ -271,6 +271,7 @@ extension CalculatorView {
             .frame(maxWidth:.infinity)
         }
     }
+    
     private var TargetUserKcalSection:some View{
         VStack{
             TextField("Insert kcal directly",text: $userTargetKcal)
