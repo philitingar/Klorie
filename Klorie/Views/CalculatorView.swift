@@ -65,12 +65,13 @@ struct CalculatorView: View {
                                 .frame(height:55)
                                 .frame(maxWidth:120)
                                 .background(textFieldisValid() ?
-                                            Color.accentColor : Color.gray)
+                                            Color(red: 175/255, green: 101/255, blue: 181/255) : Color.gray)
                                 .cornerRadius(10)
                                 .padding()
                             
                             
                         }
+                        
                         TargetUserKcalSection
                     }
                     .padding()
@@ -78,23 +79,26 @@ struct CalculatorView: View {
                 }
                 
             }.navigationTitle("Calorie Calculator")
+                .sheet(isPresented: $showInfoSheet) {
+                    InfoSheetView()
+                }
                 
         }
     }
-    func textFieldisValid()->Bool{
-        if(age.count<2 || weight.count<2 || height.count<3){
+    func textFieldisValid() -> Bool {
+        if(age.count < 2 || weight.count < 2 || height.count < 3){
             return false
         }
         return true
     }
-    func directKcalTextFieldValidation()->Bool{
-        if(userTargetKcal.count<3){
+    func directKcalTextFieldValidation() -> Bool {
+        if(userTargetKcal.count < 3){
             return false
         }
         return true
     }
     
-    func resetTextField(){
+    func resetTextField() {
         height = ""
         age = ""
         weight = ""
@@ -108,7 +112,7 @@ struct CalculatorView_Previews: PreviewProvider {
     }
 }
 
-extension CalculatorView{
+extension CalculatorView {
     
     private var InfoButton:some View {
         HStack {
@@ -116,10 +120,11 @@ extension CalculatorView{
             Button {
                 showInfoSheet.toggle()
             } label: {
-                Image(systemName: "info.circle.fill")
+                Image(systemName: "info.bubble")
                     .resizable()
                     .scaledToFit()
                     .frame(width:30)
+                    .foregroundColor(.white)
             }
         }
     }
@@ -159,12 +164,13 @@ extension CalculatorView{
                 ForEach(genderSelection.indices,id:\.self){ index in
                     Text(genderSelection[index])
                         .tag(genderSelection[index])
+                        
                 }
             })
             .pickerStyle(SegmentedPickerStyle())
             .padding()
             
-            
+            InfoButton
             HStack {
                 Text("Choose your activity :")
                     .font(.headline)
@@ -190,7 +196,7 @@ extension CalculatorView{
             TextField("Insert kcal directly",text: $userTargetKcal)
                 .padding(.horizontal)
                 .frame(height:40)
-                .background(Color.gray.opacity(0.3))
+                .background(Color.white.opacity(0.8))
                 .cornerRadius(10)
                 .font(.headline)
                 .keyboardType(.decimalPad)
