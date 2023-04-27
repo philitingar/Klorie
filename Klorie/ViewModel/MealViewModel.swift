@@ -21,7 +21,7 @@ class MealViewModel: ObservableObject {
         Meal(name: "Turkey Breast", kcal: 104, quantity: 100, unit: "g", isFav: false, date: Date()),
         Meal(name: "Chicken Breast", kcal: 172, quantity: 100, unit: "g", isFav: false, date: Date()),
         Meal(name: "Duck", kcal: 337, quantity: 100, unit: "g", isFav: false, date: Date()),
-            ]
+    ]
    
     // MARK: Sea-Food list
     
@@ -107,14 +107,10 @@ class MealViewModel: ObservableObject {
     @Published var categorylist: [Category] = [
         Category(title: "Fruit", image: "Fruit"),
         Category(title: "Beef & Chicken", image: "Beef"),
-        Category(title: "Fast Food", image: "FastFood"),
         Category(title: "Vegetable", image: "Vegetable"),
         Category(title: "Pasta", image: "Pasta"),
-        Category(title: "Dessert", image: "Dessert"),
-        Category(title: "Hot Drinks", image: "HotDrink"),
         Category(title: "Cold Drinks", image: "ColdDrink"),
         Category(title: "Dairy", image: "Dairy"),
-        Category(title: "Pastries", image: "Pastries"),
         Category(title: "Nuts", image: "Nuts"),
         Category(title: "SeaFood", image: "SeaFood"),
         ]
