@@ -38,8 +38,8 @@ struct TabBarView: View {
             }
                 .environmentObject(tabData)
                 .padding(.vertical,10)
-                .background(Color(red: 175/255, green: 101/255, blue: 181/255).opacity( 0.7))
-                .cornerRadius(20.0)
+                //.background(Color.secondary.opacity( 0.4))
+               // .cornerRadius(20.0)
                 .padding(.bottom,8)
             ,alignment: .bottom
         )
@@ -74,8 +74,8 @@ struct TabBarButton: View{
                     .font(.caption.bold())
             }
             .scaleEffect(tabData.cuurentTab == title ?  1.40 : 1.0)
-            .foregroundColor(tabData.cuurentTab == title ? Color(red: 41/255, green: 62/255, blue: 87/255)
-                             : .white)
+            .foregroundColor(tabData.cuurentTab == title ? .secondary
+                             : .primary)
             .frame(maxWidth: .infinity)
         }
     }

@@ -41,68 +41,66 @@ struct CalculatorView: View {
     
     init(){
         UISegmentedControl.appearance().selectedSegmentTintColor =
-        UIColor(red: 175/255, green: 101/255, blue: 181/255, alpha: 1)
+        UIColor(Color.secondary)
         
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(red: 100/255, green: 180/255, blue: 163/255, alpha: 1)]
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(.primary)]
     }
     
     
     var body: some View {
         NavigationView {
-            ZStack {
-                Color(red: 41/255, green: 62/255, blue: 87/255)
-                    .ignoresSafeArea()
-                
-                ScrollView {
+                        
+            ScrollView {
+                VStack {
                     VStack {
-                        VStack {
+                        
+                        TextFieldInputsCalcButton
+                        
+                        Button{
+                            kcalCalculator(gender: gender,
+                                           activity: activity)
                             
-                            TextFieldInputsCalcButton
+                            resetTextField()
                             
-                            Button{
-                                kcalCalculator(gender: gender,
-                                               activity: activity)
-                                
-                                resetTextField()
-                                
-                                showAlert.toggle()
-                                
-                            } label: {
-                                Text("Calculate")
-                                    .foregroundColor(.white)
-                                    .font(.headline)
-                                    .frame(height:55)
-                                    .frame(maxWidth:120)
-                                    .background(textFieldisValid() ?
-                                                Color(red: 175/255, green: 101/255, blue: 181/255) : Color.gray)
-                                    .cornerRadius(10)
-                                    .padding()
-                                
-                                
-                            }
-                            .disabled(!textFieldisValid())
-                            .alert("Recommended daily calories:", isPresented: $showAlert, actions: {
-                                
-                            }, message: {
-                                Text("\(vm.userDailyCal) kcal")
-                            })
-                            TargetUserKcalSection
+                            showAlert.toggle()
+                            
+                        } label: {
+                            Text("Calculate")
+                                .foregroundColor(.primary)
+                                .font(.headline)
+                                .frame(height:55)
+                                .frame(maxWidth:120)
+                                .background(textFieldisValid() ?
+                                            Color.blue : Color.gray)
+                                .cornerRadius(10)
+                                .padding()
+                            
+                            
                         }
-                        .padding()
-                        Spacer()
+                        .disabled(!textFieldisValid())
+                        .alert("Recommended daily calories:", isPresented: $showAlert, actions: {
+                            
+                        }, message: {
+                            Text("\(vm.userDailyCal) kcal")
+                        })
+                        TargetUserKcalSection
                     }
+                    .padding()
+                    Spacer()
                 }
-                
             }
-            .onTapGesture {
-                self.dismissKeyBoard()
-            }
-            .navigationTitle("Calorie Calculator")
-                .sheet(isPresented: $showInfoSheet) {
-                    InfoSheetView()
-                }
+            
+        }
+        .onTapGesture {
+            self.dismissKeyBoard()
+        }
+        .navigationTitle("Calorie Calculator")
+        .foregroundColor(.primary)
+        .sheet(isPresented: $showInfoSheet) {
+            InfoSheetView()
         }
     }
+    
     
     func kcalCalculator(gender:String,activity:String) {
         if textFieldisValid() {
@@ -204,7 +202,7 @@ extension CalculatorView {
                     .resizable()
                     .scaledToFit()
                     .frame(width:30)
-                    .foregroundColor(.white)
+                    .foregroundColor(.primary)
             }
         }
     }
@@ -213,48 +211,52 @@ extension CalculatorView {
             
             TextField("Age",text: $age)
                 .padding(.horizontal)
+                .foregroundColor(.primary)
                 .frame(height:45)
-                .background(Color.white.opacity( 0.8))
+                .background(Color.secondary.opacity( 0.6))
                 .cornerRadius(10)
                 .font(.title)
                 .keyboardType(.decimalPad)
             
             TextField("Height",text: $height)
                 .padding(.horizontal)
-                
                 .frame(height:45)
-                .background(Color.white.opacity( 0.8))
+                .background(Color.secondary.opacity( 0.6))
                 .cornerRadius(10)
                 .font(.title)
                 .keyboardType(.decimalPad)
+                .foregroundColor(Color.primary)
             
             TextField("Weight",text: $weight)
+                .foregroundColor(.primary)
                 .padding(.horizontal)
                 .frame(height:45)
-                .background(Color.white.opacity( 0.8))
+                .background(Color.secondary.opacity( 0.6))
                 .cornerRadius(10)
                 .font(.title)
+                .foregroundColor(.primary)
                 .keyboardType(.decimalPad)
             
             
             Picker(
                 selection:$gender,
-                   label:Text("Gender"),
-                   content:{
-                ForEach(genderSelection.indices,id:\.self){ index in
-                    Text(genderSelection[index])
-                        .tag(genderSelection[index])
+                label:Text("Gender"),
+                content:{
+                    ForEach(genderSelection.indices,id:\.self){ index in
+                        Text(genderSelection[index])
+                            .tag(genderSelection[index])
                         
-                }
-            })
+                    }
+                })
             .pickerStyle(SegmentedPickerStyle())
+            .foregroundColor(.primary)
             .padding()
             
             InfoButton
             HStack {
                 Text("Choose your activity :")
                     .font(.headline)
-                    .foregroundColor(.white)
+                    .foregroundColor(.primary)
                 Picker(
                     selection:$activity,
                     label:Text("Activity"),
@@ -277,7 +279,8 @@ extension CalculatorView {
             TextField("Insert kcal directly",text: $userTargetKcal)
                 .padding(.horizontal)
                 .frame(height:40)
-                .background(Color.white.opacity(0.8))
+                .foregroundColor(.primary)
+                .background(Color.secondary.opacity(0.6))
                 .cornerRadius(10)
                 .font(.headline)
                 .keyboardType(.decimalPad)
@@ -294,5 +297,5 @@ extension CalculatorView {
             }
         }
     }
-   
+    
 }

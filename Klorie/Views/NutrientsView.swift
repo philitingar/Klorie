@@ -12,12 +12,12 @@ struct NutrientsView: View {
     var body: some View {
         
         ZStack {
-            BackgroundView()
+            
             PieChartView(
                 values: [300, 200, 150],
                 names: ["Carbs", "Proteins", "Fats"],
                 formatter: {value in String(format: "%.0f kcal", value)},
-                colors: [Color(red: 229/255, green: 107/255, blue: 111/255),Color(red: 227/255, green: 170/255, blue: 146/255),Color(red: 100/255, green: 180/255, blue: 163/255)]
+                colors: [Color(red: 202/255, green: 144/255, blue: 126/255),Color(red: 114/255, green: 155/255, blue: 121/255),Color(red: 93/255, green: 93/255, blue: 129/255)]
             )
         }
                     
