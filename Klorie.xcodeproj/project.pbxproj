@@ -16,7 +16,6 @@
 		266F67AF29DDD06500A2A92C /* KlorieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266F67AE29DDD06500A2A92C /* KlorieTests.swift */; };
 		266F67B929DDD06500A2A92C /* KlorieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266F67B829DDD06500A2A92C /* KlorieUITests.swift */; };
 		266F67BB29DDD06500A2A92C /* KlorieUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266F67BA29DDD06500A2A92C /* KlorieUITestsLaunchTests.swift */; };
-		266F67C829DDD8D700A2A92C /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266F67C729DDD8D700A2A92C /* BackgroundView.swift */; };
 		266F67CC29DDDBBC00A2A92C /* NutrientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266F67CB29DDDBBC00A2A92C /* NutrientsView.swift */; };
 		266F681529DEF35F00A2A92C /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266F681429DEF35F00A2A92C /* MenuView.swift */; };
 		268A4D9C29F94EF5002DECFE /* InfoSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268A4D9B29F94EF5002DECFE /* InfoSheetView.swift */; };
@@ -58,7 +57,6 @@
 		266F67B429DDD06500A2A92C /* KlorieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KlorieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		266F67B829DDD06500A2A92C /* KlorieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlorieUITests.swift; sourceTree = "<group>"; };
 		266F67BA29DDD06500A2A92C /* KlorieUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlorieUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		266F67C729DDD8D700A2A92C /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		266F67CB29DDDBBC00A2A92C /* NutrientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientsView.swift; sourceTree = "<group>"; };
 		266F681429DEF35F00A2A92C /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		268A4D9B29F94EF5002DECFE /* InfoSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSheetView.swift; sourceTree = "<group>"; };
@@ -166,7 +164,6 @@
 			isa = PBXGroup;
 			children = (
 				266F679F29DDD06200A2A92C /* HomeView.swift */,
-				266F67C729DDD8D700A2A92C /* BackgroundView.swift */,
 				266F67CB29DDDBBC00A2A92C /* NutrientsView.swift */,
 				266F681429DEF35F00A2A92C /* MenuView.swift */,
 				268A4D9B29F94EF5002DECFE /* InfoSheetView.swift */,
@@ -329,7 +326,6 @@
 				266F681529DEF35F00A2A92C /* MenuView.swift in Sources */,
 				268A4DA129F95765002DECFE /* Meal.swift in Sources */,
 				268A4DA329F9581B002DECFE /* MealViewModel.swift in Sources */,
-				266F67C829DDD8D700A2A92C /* BackgroundView.swift in Sources */,
 				268A4D9C29F94EF5002DECFE /* InfoSheetView.swift in Sources */,
 				266F67CC29DDDBBC00A2A92C /* NutrientsView.swift in Sources */,
 				266F67A029DDD06200A2A92C /* HomeView.swift in Sources */,

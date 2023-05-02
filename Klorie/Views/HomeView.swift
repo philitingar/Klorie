@@ -15,12 +15,12 @@ struct HomeView: View {
     }
     
     var body: some View {
-        ZStack {
-            BackgroundView()
+        
+        HStack {
             VStack {
                 NutrientsView()
-                
             }
+            
         }
     }
 }

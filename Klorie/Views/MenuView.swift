@@ -10,9 +10,9 @@ import SwiftUI
 struct MenuView: View {
     var body: some View {
         ZStack{
-            BackgroundView()
+            
             Text("This is the menu view")
-                .foregroundColor(.white)
+                .foregroundColor(.primary)
         }
     }
 }
