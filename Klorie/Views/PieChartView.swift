@@ -34,7 +34,7 @@ public struct PieChartView: View {
         return tempSlices
     }
     
-    public init(values:[Double], names: [String], formatter: @escaping (Double) -> String, colors: [Color] = [Color.blue, Color.green, Color.orange], backgroundColor: Color = Color(red: 21 / 255, green: 24 / 255, blue: 30 / 255, opacity: 1.0), widthFraction: CGFloat = 0.75, innerRadiusFraction: CGFloat = 0.60){
+    public init(values:[Double], names: [String], formatter: @escaping (Double) -> String, colors: [Color] = [Color.blue, Color.green, Color.orange], backgroundColor: Color = Color(red: 21 / 255, green: 24 / 255, blue: 30 / 255, opacity: 0.0), widthFraction: CGFloat = 0.75, innerRadiusFraction: CGFloat = 0.60){
         self.values = values
         self.names = names
         self.formatter = formatter
@@ -47,8 +47,8 @@ public struct PieChartView: View {
     
     public var body: some View {
             GeometryReader { geometry in
-                VStack{
-                    ZStack{
+                VStack {
+                    ZStack {
                         ForEach(0..<self.values.count) { i in
                             PieSlice(pieSliceData: self.slices[i])
                                 .scaleEffect(self.activeIndex == i ? 1.03 : 1)
@@ -82,17 +82,17 @@ public struct PieChartView: View {
                                 }
                         )
                         Circle()
-                        
                             .frame(width: widthFraction * geometry.size.width * innerRadiusFraction, height: widthFraction * geometry.size.width * innerRadiusFraction)
+                        
                         
                         VStack {
                             Text(self.activeIndex == -1 ? "Total" : names[self.activeIndex])
                                 .font(.title)
                                 .bold()
-                                .foregroundColor(Color.white)
+                                .foregroundColor(Color.primary)
                             Text(self.formatter(self.activeIndex == -1 ? values.reduce(0, +) : values[self.activeIndex]))
                                 .font(.title)
-                                .foregroundColor(Color.white.opacity(0.8))
+                                .foregroundColor(Color.primary)
                         }
                         
                     }.padding(30)
@@ -100,7 +100,7 @@ public struct PieChartView: View {
                     PieChartRows(colors: self.colors, names: self.names, values: self.values.map { self.formatter($0) }, percents: self.values.map { String(format: "%.0f%%", $0 * 100 / self.values.reduce(0, +)) })
                 }
                 
-                .foregroundColor(Color.white.opacity(0.0))
+                .foregroundColor(Color.primary.opacity(0.0))
                 
             }
         
@@ -116,29 +116,30 @@ struct PieChartRows: View {
     
     var body: some View {
         VStack{
-            ForEach(0..<self.values.count){ i in
-                HStack {
-                    RoundedRectangle(cornerRadius: 5.0)
-                        .fill(self.colors[i])
-                        .frame(width: 20, height: 20)
-                    Text(self.names[i])
-                        .bold()
-                        .foregroundColor(Color.white)
-                    
-                    Spacer()
-                    VStack(alignment: .trailing) {
-                        Text(self.values[i])
-                            .foregroundColor(Color.white)
-                        Text(self.percents[i])
-                            .foregroundColor(Color.white)
+            List {
+                ForEach(0..<self.values.count) { i in
+                    HStack {
+                        RoundedRectangle(cornerRadius: 5.0)
+                            .fill(self.colors[i])
+                            .frame(width: 20, height: 20)
+                        Text(self.names[i])
+                            .bold()
+                            .foregroundColor(.primary)
+                        
+                        Spacer()
+                        VStack(alignment: .trailing) {
+                            Text(self.values[i])
+                                .foregroundColor(.primary)
+                            Text(self.percents[i])
+                                .foregroundColor(.primary)
                             
+                        }
+                    
                     }
                 }
-            }.padding()
-                .background(Color(red: 175/255, green: 101/255, blue: 181/255).opacity( 0.8))
-                .cornerRadius(/*@START_MENU_TOKEN@*/20.0/*@END_MENU_TOKEN@*/)
-                .padding(.horizontal, 5)
-                
+                    
+            }
+            .scrollContentBackground(.hidden)
         }
     }
 }
