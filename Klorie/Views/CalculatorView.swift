@@ -14,7 +14,7 @@ extension View{
 }
 struct CalculatorView: View {
     
-    @EnvironmentObject var vm : MealViewModel
+   // @EnvironmentObject var vm : MealViewModel
     
     
     @State var age = ""
@@ -81,7 +81,7 @@ struct CalculatorView: View {
                         .alert("Recommended daily calories:", isPresented: $showAlert, actions: {
                             
                         }, message: {
-                            Text("\(vm.userDailyCal) kcal")
+                 //           Text("\(vm.userDailyCal) kcal")
                         })
                         TargetUserKcalSection
                     }
@@ -128,9 +128,9 @@ struct CalculatorView: View {
                     // "Very active"
                     res = total * 1.9
                 }
-                vm.userDailyCal =
+       //         vm.userDailyCal =
                 String(format: "%.0f", res)
-                vm.addKcal(kcal: vm.userDailyCal)
+     //           vm.addKcal(kcal: vm.userDailyCal)
             } else {
                 let w = (9.563 * (Double(weight) ?? 0.0))
                 let h = (1.850 * (Double(height) ?? 0.0))
@@ -155,8 +155,8 @@ struct CalculatorView: View {
                     res = total * 1.9
                 }
                 
-                vm.userDailyCal = String(format: "%.0f", res)
-                vm.addKcal(kcal: vm.userDailyCal)
+        //        vm.userDailyCal = String(format: "%.0f", res)
+        //        vm.addKcal(kcal: vm.userDailyCal)
             }
             
         }
@@ -186,7 +186,7 @@ struct CalculatorView: View {
 struct CalculatorView_Previews: PreviewProvider {
     static var previews: some View {
         CalculatorView()
-            .environmentObject(MealViewModel())
+           
     }
 }
 
