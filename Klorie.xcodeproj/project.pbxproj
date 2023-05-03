@@ -17,11 +17,15 @@
 		266F67B929DDD06500A2A92C /* KlorieUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266F67B829DDD06500A2A92C /* KlorieUITests.swift */; };
 		266F67BB29DDD06500A2A92C /* KlorieUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266F67BA29DDD06500A2A92C /* KlorieUITestsLaunchTests.swift */; };
 		266F67CC29DDDBBC00A2A92C /* NutrientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266F67CB29DDDBBC00A2A92C /* NutrientsView.swift */; };
-		266F681529DEF35F00A2A92C /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266F681429DEF35F00A2A92C /* MenuView.swift */; };
+		266F681529DEF35F00A2A92C /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266F681429DEF35F00A2A92C /* DiaryView.swift */; };
 		268A4D9C29F94EF5002DECFE /* InfoSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268A4D9B29F94EF5002DECFE /* InfoSheetView.swift */; };
 		268A4DA52A013F49002DECFE /* PieSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268A4DA42A013F49002DECFE /* PieSliceView.swift */; };
 		268A4DA72A013F6B002DECFE /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268A4DA62A013F6B002DECFE /* PieChartView.swift */; };
 		26BAEDED29E59DA000FD2AF8 /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BAEDEC29E59DA000FD2AF8 /* CalculatorView.swift */; };
+		26EC82DE2A0264D7001C1B32 /* SearchResults.json in Resources */ = {isa = PBXBuildFile; fileRef = 26EC82DD2A0264D7001C1B32 /* SearchResults.json */; };
+		26EC82E02A026F05001C1B32 /* SingleProduct.json in Resources */ = {isa = PBXBuildFile; fileRef = 26EC82DF2A026F05001C1B32 /* SingleProduct.json */; };
+		26EC82E22A028DB4001C1B32 /* ProductSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EC82E12A028DB4001C1B32 /* ProductSearchResult.swift */; };
+		26EC82E42A0291F9001C1B32 /* SingleProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EC82E32A0291F9001C1B32 /* SingleProduct.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,11 +59,15 @@
 		266F67B829DDD06500A2A92C /* KlorieUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlorieUITests.swift; sourceTree = "<group>"; };
 		266F67BA29DDD06500A2A92C /* KlorieUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlorieUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		266F67CB29DDDBBC00A2A92C /* NutrientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientsView.swift; sourceTree = "<group>"; };
-		266F681429DEF35F00A2A92C /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		266F681429DEF35F00A2A92C /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
 		268A4D9B29F94EF5002DECFE /* InfoSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSheetView.swift; sourceTree = "<group>"; };
 		268A4DA42A013F49002DECFE /* PieSliceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieSliceView.swift; sourceTree = "<group>"; };
 		268A4DA62A013F6B002DECFE /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		26BAEDEC29E59DA000FD2AF8 /* CalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorView.swift; sourceTree = "<group>"; };
+		26EC82DD2A0264D7001C1B32 /* SearchResults.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SearchResults.json; sourceTree = "<group>"; };
+		26EC82DF2A026F05001C1B32 /* SingleProduct.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SingleProduct.json; sourceTree = "<group>"; };
+		26EC82E12A028DB4001C1B32 /* ProductSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchResult.swift; sourceTree = "<group>"; };
+		26EC82E32A0291F9001C1B32 /* SingleProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleProduct.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +131,8 @@
 				268A4D9D29F95700002DECFE /* Models */,
 				266F681329DEF33900A2A92C /* Views */,
 				266F67A129DDD06400A2A92C /* Assets.xcassets */,
+				26EC82DD2A0264D7001C1B32 /* SearchResults.json */,
+				26EC82DF2A026F05001C1B32 /* SingleProduct.json */,
 				266F67A329DDD06400A2A92C /* Preview Content */,
 			);
 			path = Klorie;
@@ -158,7 +168,7 @@
 			children = (
 				266F679F29DDD06200A2A92C /* HomeView.swift */,
 				266F67CB29DDDBBC00A2A92C /* NutrientsView.swift */,
-				266F681429DEF35F00A2A92C /* MenuView.swift */,
+				266F681429DEF35F00A2A92C /* DiaryView.swift */,
 				268A4D9B29F94EF5002DECFE /* InfoSheetView.swift */,
 				26BAEDEC29E59DA000FD2AF8 /* CalculatorView.swift */,
 				26567D1429E6BD34003DAD3B /* TabBarView.swift */,
@@ -171,6 +181,8 @@
 		268A4D9D29F95700002DECFE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				26EC82E12A028DB4001C1B32 /* ProductSearchResult.swift */,
+				26EC82E32A0291F9001C1B32 /* SingleProduct.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -284,6 +296,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				266F67A529DDD06400A2A92C /* Preview Assets.xcassets in Resources */,
+				26EC82E02A026F05001C1B32 /* SingleProduct.json in Resources */,
+				26EC82DE2A0264D7001C1B32 /* SearchResults.json in Resources */,
 				266F67A229DDD06400A2A92C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,7 +327,9 @@
 				26567D1329E6BD0F003DAD3B /* TabBarViewModel.swift in Sources */,
 				268A4DA52A013F49002DECFE /* PieSliceView.swift in Sources */,
 				26567D1529E6BD34003DAD3B /* TabBarView.swift in Sources */,
-				266F681529DEF35F00A2A92C /* MenuView.swift in Sources */,
+				26EC82E22A028DB4001C1B32 /* ProductSearchResult.swift in Sources */,
+				26EC82E42A0291F9001C1B32 /* SingleProduct.swift in Sources */,
+				266F681529DEF35F00A2A92C /* DiaryView.swift in Sources */,
 				268A4D9C29F94EF5002DECFE /* InfoSheetView.swift in Sources */,
 				266F67CC29DDDBBC00A2A92C /* NutrientsView.swift in Sources */,
 				266F67A029DDD06200A2A92C /* HomeView.swift in Sources */,
