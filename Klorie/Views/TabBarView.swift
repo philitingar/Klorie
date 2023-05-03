@@ -24,7 +24,7 @@ struct TabBarView: View {
             HomeView()
                 .tag("Home")
             
-            MenuView()
+            DiaryView()
                 .tag("Menu")
             
             CalculatorView()
@@ -33,7 +33,7 @@ struct TabBarView: View {
         .overlay(
             HStack{
                 TabBarButton(title: "Home", image: "house.fill", animation: animation)
-                TabBarButton(title: "Menu", image: "carrot.fill", animation: animation)
+                TabBarButton(title: "Diary", image: "book.fill", animation: animation)
                 TabBarButton(title: "Calculator", image: "person.fill", animation: animation)
             }
                 .environmentObject(tabData)
@@ -49,6 +49,7 @@ struct TabBarView: View {
 struct CustomTabBarView_Previews: PreviewProvider {
     static var previews: some View {
         TabBarView()
+           
             
     }
 }
@@ -73,7 +74,7 @@ struct TabBarButton: View{
                 Text(title)
                     .font(.caption.bold())
             }
-            .scaleEffect(tabData.cuurentTab == title ?  1.40 : 1.0)
+            .scaleEffect(tabData.cuurentTab == title ?  1.20 : 1.0)
             .foregroundColor(tabData.cuurentTab == title ? .secondary
                              : .primary)
             .frame(maxWidth: .infinity)
