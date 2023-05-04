@@ -25,7 +25,7 @@ struct TabBarView: View {
                 .tag("Home")
             
             DiaryView()
-                .tag("Menu")
+                .tag("Diary")
             
             CalculatorView()
                 .tag("Calculator")

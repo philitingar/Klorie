@@ -26,6 +26,7 @@
 		26EC82E02A026F05001C1B32 /* SingleProduct.json in Resources */ = {isa = PBXBuildFile; fileRef = 26EC82DF2A026F05001C1B32 /* SingleProduct.json */; };
 		26EC82E22A028DB4001C1B32 /* ProductSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EC82E12A028DB4001C1B32 /* ProductSearchResult.swift */; };
 		26EC82E42A0291F9001C1B32 /* SingleProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EC82E32A0291F9001C1B32 /* SingleProduct.swift */; };
+		26EC82E72A03E4CC001C1B32 /* KlorieDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 26EC82E52A03E4CC001C1B32 /* KlorieDataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		26EC82DF2A026F05001C1B32 /* SingleProduct.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SingleProduct.json; sourceTree = "<group>"; };
 		26EC82E12A028DB4001C1B32 /* ProductSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchResult.swift; sourceTree = "<group>"; };
 		26EC82E32A0291F9001C1B32 /* SingleProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleProduct.swift; sourceTree = "<group>"; };
+		26EC82E62A03E4CC001C1B32 /* KlorieDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = KlorieDataModel.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,9 +171,9 @@
 				266F679F29DDD06200A2A92C /* HomeView.swift */,
 				266F67CB29DDDBBC00A2A92C /* NutrientsView.swift */,
 				266F681429DEF35F00A2A92C /* DiaryView.swift */,
-				268A4D9B29F94EF5002DECFE /* InfoSheetView.swift */,
 				26BAEDEC29E59DA000FD2AF8 /* CalculatorView.swift */,
 				26567D1429E6BD34003DAD3B /* TabBarView.swift */,
+				268A4D9B29F94EF5002DECFE /* InfoSheetView.swift */,
 				268A4DA42A013F49002DECFE /* PieSliceView.swift */,
 				268A4DA62A013F6B002DECFE /* PieChartView.swift */,
 			);
@@ -183,6 +185,7 @@
 			children = (
 				26EC82E12A028DB4001C1B32 /* ProductSearchResult.swift */,
 				26EC82E32A0291F9001C1B32 /* SingleProduct.swift */,
+				26EC82E52A03E4CC001C1B32 /* KlorieDataModel.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				268A4DA72A013F6B002DECFE /* PieChartView.swift in Sources */,
+				26EC82E72A03E4CC001C1B32 /* KlorieDataModel.xcdatamodeld in Sources */,
 				26567D1329E6BD0F003DAD3B /* TabBarViewModel.swift in Sources */,
 				268A4DA52A013F49002DECFE /* PieSliceView.swift in Sources */,
 				26567D1529E6BD34003DAD3B /* TabBarView.swift in Sources */,
@@ -660,6 +664,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		26EC82E52A03E4CC001C1B32 /* KlorieDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				26EC82E62A03E4CC001C1B32 /* KlorieDataModel.xcdatamodel */,
+			);
+			currentVersion = 26EC82E62A03E4CC001C1B32 /* KlorieDataModel.xcdatamodel */;
+			path = KlorieDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 266F679229DDD06200A2A92C /* Project object */;
 }

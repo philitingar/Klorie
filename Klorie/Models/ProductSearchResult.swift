@@ -11,7 +11,7 @@ struct ProductSearch: Codable {
     var count: Int
     var page: Int
     var page_count: Int
-    var page_size: Int
+    var page_cize: Int
     var products: [ProductSearchItem]
     
 }
