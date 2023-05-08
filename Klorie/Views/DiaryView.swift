@@ -20,11 +20,12 @@ struct DiaryView: View {
                         Text("100")// this is calorie count that will be the total for breakfast
                     }
                     //Foreach for items that are added, include HStack for calorie count
-                    Button {
-                        print("Breakfast button pressed")
+                    NavigationLink {
+                        ItemSearchView()
                     } label: {
                         Text("ADD FOOD")
                             .bold()
+                            .foregroundColor(.primary)
                     }
                 }
                 
@@ -35,11 +36,12 @@ struct DiaryView: View {
                         Text("100")// this is calorie count that will be the total for lunch
                     }
                     //Foreach for items that are added, include HStack for calorie count
-                    Button {
-                        print("Lunch button pressed")
+                    NavigationLink {
+                        ItemSearchView()
                     } label: {
                         Text("ADD FOOD")
                             .bold()
+                            .foregroundColor(.primary)
                     }
                 }
                 
@@ -50,11 +52,12 @@ struct DiaryView: View {
                         Text("100") //this is calorie count that will be the total for dinner
                     }
                     //Foreach for items that are added, include HStack for calorie count
-                    Button {
-                        print("Dinner button pressed")
+                    NavigationLink {
+                        ItemSearchView()
                     } label: {
                         Text("ADD FOOD")
                             .bold()
+                            .foregroundColor(.primary)
                     }
                 }
                 
@@ -65,11 +68,12 @@ struct DiaryView: View {
                         Text("100")//this is calorie count that will be the total for snacks
                     }
                     //Foreach for items that are added, include HStack for calorie count
-                    Button {
-                        print("Snacks button pressed")
+                    NavigationLink {
+                        ItemSearchView()
                     } label: {
                         Text("ADD FOOD")
                             .bold()
+                            .foregroundColor(.primary)
                     }
                 }
                 
