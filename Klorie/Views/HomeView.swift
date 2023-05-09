@@ -8,11 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    
-    init() {
-        UITabBar.appearance().isHidden = true
-    }
-    
+
     var body: some View {
         
         HStack {
