@@ -9,7 +9,11 @@ import SwiftUI
 
 struct BarcodeScannerView: View {
     var body: some View {
-        Text("This is trhe barcode scanner")
+        
+            Text("This is trhe barcode scanner")
+                
+        
+        
     }
 }
 
