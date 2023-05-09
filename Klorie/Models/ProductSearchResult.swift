@@ -31,12 +31,11 @@ struct ProductSearchItem: Codable, Identifiable {
     var brands: String
     var categories: String?
     var id: String
-    var code: String
     var nutritionData: NutritionData?
     var servingSize, productName: String?
 
     enum CodingKeys: String, CodingKey {
-        case brands, categories, id, code
+        case brands, categories, id
         case nutritionData = "nutrition_data"
         case servingSize = "serving_size"
         case productName = "product_name"
