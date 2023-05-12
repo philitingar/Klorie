@@ -11,12 +11,26 @@ struct ItemSearchView: View {
     @State private var searchText = ""
     @State var searchResult : ProductSearch?
     
+    
     var body: some View {
+        VStack {
             List {
                 if let result = self.searchResult {
                     ForEach(result.products) { product in
-                        Section(header: Text(product.id)) {
+                       // Section(header: Text(product.id)) {
+                        NavigationLink{
+                            SingleProductDetailView()
+                            
+                        } label: {
                             Text(product.brands)
+                                .bold()
+                                .foregroundColor(.primary)
+                        }
+                            HStack {
+                                Text(product.brands)
+                                Spacer()
+                                Text(product.productName ?? "None")
+                            }
                             
                         }
                     }
@@ -30,7 +44,7 @@ struct ItemSearchView: View {
                     searchResult = nil
                 }
             })
-
+            
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     NavigationLink {
@@ -44,7 +58,10 @@ struct ItemSearchView: View {
             .navigationBarTitle("", displayMode: .inline)
             
         }
+        
     }
+    
+
 
 struct ItemSearchView_Previews: PreviewProvider {
     static var previews: some View {
