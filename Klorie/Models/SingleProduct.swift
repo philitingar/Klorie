@@ -14,7 +14,7 @@ import SwiftUI
 struct ProductResponse: Codable {
     var code: String
     var status: Int
-    var product: [SingleProduct]
+    var product: SingleProduct
     var statusVerbose: String
     
     enum CodingKeys: String, CodingKey {
@@ -29,7 +29,7 @@ struct ProductResponse: Codable {
 struct SingleProduct: Codable, Identifiable {
     var id: String
     var keywords: [String]
-    var nutriments: [SingleProductNutriments]
+    var nutriments: SingleProductNutriments
     
     enum CodingKeys: String, CodingKey {
         case id = "_id"
