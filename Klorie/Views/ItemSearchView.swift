@@ -10,6 +10,7 @@ import SwiftUI
 struct ItemSearchView: View {
     @State private var searchText = ""
     @State var searchResult : ProductSearch?
+    @State var productResponse : ProductResponse?
     
     var body: some View {
         VStack {
@@ -18,12 +19,21 @@ struct ItemSearchView: View {
                     ForEach(result.products) { product in
                        // Section(header: Text(product.id)) {
                         NavigationLink{
-                            SingleProductDetailView(searchResult: product)
-                            
+                            SingleProductDetailView(singleProduct: self.$productResponse)
                         } label: {
                             Text(product.brands)
                                 .bold()
                                 .foregroundColor(.primary)
+
+                        }.onTapGesture {
+                                print("looking server shit")
+                                let url = URL(string: "https://off:off@world.openfoodfacts.org/api/v2/product/3017620422003")
+                                URLSession.shared.dataTask(with: url!) { (data, _, _) in
+                                    print("done with server shit")
+                                    let products = try! JSONDecoder().decode(ProductResponse.self, from: data!)
+                                    print("done decoding")
+                                    self.productResponse = products
+                                }.resume()                            
                         }
                             HStack {
                                 Text(product.brands)
@@ -64,6 +74,8 @@ struct ItemSearchView: View {
 
 struct ItemSearchView_Previews: PreviewProvider {
     static var previews: some View {
-        ItemSearchView()
+        let productResponse = Bundle.main.decode(ProductResponse.self, from: "SingleProduct.json")
+
+        ItemSearchView(productResponse: productResponse)
     }
 }

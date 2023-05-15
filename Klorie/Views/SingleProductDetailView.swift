@@ -8,18 +8,20 @@
 import SwiftUI
 
 struct SingleProductDetailView: View {
-    @State var productresponse = Bundle.main.decode(ProductResponse.self, from: "SingleProduct.json")
-    @State var searchResult: ProductSearchItem
+   
+    @Binding var singleProduct: ProductResponse?
     
     var body: some View {
-        List {
-            Text(searchResult.id)
-                .font(.headline)
-                .foregroundColor(.primary)
-            HStack(alignment: .firstTextBaseline) {
-                Text("Total cal")
-                
-                
+        if let product = singleProduct {
+            List {
+                Text(product.code)
+                    .font(.headline)
+                    .foregroundColor(.primary)
+                HStack(alignment: .firstTextBaseline) {
+                    Text("Total cal")
+                    
+                    
+                }
             }
         }
     }

@@ -43,11 +43,11 @@ struct SingleProduct: Codable, Identifiable {
 struct SingleProductNutriments: Codable {
     var carbohydrates, carbohydrates100G, carbohydratesServing: Double
     var carbohydratesUnit: String
-    let fat, fat100G, fatServing: Int
+    let fat, fat100G, fatServing: Double
     var fatUnit: String
-    var fiber, fiber100G, fiberServing: Int
-    var fiberUnit: String
-    var proteins, proteins100G, proteinsServing: Int
+    var fiber, fiber100G, fiberServing: Double?
+    var fiberUnit: String?
+    var proteins, proteins100G, proteinsServing: Double
     var proteinsUnit: String
     var salt, salt100G, saltServing: Double
     var saltUnit: String
