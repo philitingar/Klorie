@@ -9,27 +9,20 @@ import SwiftUI
 
 struct SingleProductDetailView: View {
     @State var productresponse = Bundle.main.decode(ProductResponse.self, from: "SingleProduct.json")
-    @State var searchresult = Bundle.main.decode(ProductSearch.self, from: "SearchResults.json")
-    
-
+    @State var searchResult: ProductSearchItem
     
     var body: some View {
         List {
-            Text("Product name")
+            Text(searchResult.id)
                 .font(.headline)
                 .foregroundColor(.primary)
             HStack(alignment: .firstTextBaseline) {
                 Text("Total cal")
                 
-                    
+                
             }
         }
-        }
-    }
-
-
-struct SingleProductDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        SingleProductDetailView()
     }
 }
+
+

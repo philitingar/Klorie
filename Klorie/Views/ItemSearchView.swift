@@ -11,7 +11,6 @@ struct ItemSearchView: View {
     @State private var searchText = ""
     @State var searchResult : ProductSearch?
     
-    
     var body: some View {
         VStack {
             List {
@@ -19,7 +18,7 @@ struct ItemSearchView: View {
                     ForEach(result.products) { product in
                        // Section(header: Text(product.id)) {
                         NavigationLink{
-                            SingleProductDetailView()
+                            SingleProductDetailView(searchResult: product)
                             
                         } label: {
                             Text(product.brands)
