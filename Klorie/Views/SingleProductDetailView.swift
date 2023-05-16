@@ -12,17 +12,61 @@ struct SingleProductDetailView: View {
     @State var selectedProduct: ProductSearchItem
     @State var singleProduct: ProductResponse?
     let singleItemURI = "https://off:off@world.openfoodfacts.org/api/v2/product/"
+    @State var numberOfServings = "1"
+    @State var servings = ["1 g", "100 g"]
     
     
     var body: some View {
         List {
             if let product = singleProduct {
-                Text(product.code)
-                    .font(.headline)
-                    .foregroundColor(.primary)
-                HStack(alignment: .firstTextBaseline) {
-                    Text("Total cal")
+                Section(header: Text("Product")) {
+                    VStack(alignment: .leading) {
+                        Text(product.code)
+                            .font(.headline)
+                            .foregroundColor(.primary)
+                        Text("Product name")
+                    }
+                }
+                Section(header: Text("Calories")) {
                     
+                
+                
+                    Picker("Servings", selection: $numberOfServings) {
+                        ForEach(servings, id: \.self) { item in
+                            Text(item)
+                        }
+                    }
+                    HStack {
+                        Text("Calories for selected serving:")
+                        Spacer()
+                        Text(numberOfServings)
+                    }
+                    
+                }
+                Section(header: Text("Nutrients")) {
+                    VStack {
+                        HStack {
+                            Text("Carbs")
+                            Spacer()
+                            Text("Gramms")
+                            Spacer()
+                            Text("%")
+                        }.padding()
+                        HStack {
+                            Text("Fat")
+                            Spacer()
+                            Text("Gramms")
+                            Spacer()
+                            Text("%")
+                        }.padding()
+                        HStack {
+                            Text("Protein")
+                            Spacer()
+                            Text("Gramms")
+                            Spacer()
+                            Text("%")
+                        }.padding()
+                    }
                     
                 }
             }
