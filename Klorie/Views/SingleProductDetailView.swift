@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct SingleProductDetailView: View {
-   
-    @Binding var singleProduct: ProductResponse?
+    
+    @State var selectedProduct: ProductSearchItem
+    @State var singleProduct: ProductResponse?
+    let singleItemURI = "https://off:off@world.openfoodfacts.org/api/v2/product/"
+    
     
     var body: some View {
-        if let product = singleProduct {
-            List {
+        List {
+            if let product = singleProduct {
                 Text(product.code)
                     .font(.headline)
                     .foregroundColor(.primary)
@@ -23,8 +26,20 @@ struct SingleProductDetailView: View {
                     
                 }
             }
-        }
+        }.onAppear(perform: loadData)
+    }
+    
+    
+    
+    func loadData() {
+        self.singleProduct = nil
+        print("looking server shit")
+        let url = URL(string: (singleItemURI + selectedProduct.id))
+        URLSession.shared.dataTask(with: url!) { (data, _, _) in
+            print("done with server shit")
+            let products = try! JSONDecoder().decode(ProductResponse.self, from: data!)
+            print("done decoding")
+            self.singleProduct = products
+        }.resume()
     }
 }
-
-

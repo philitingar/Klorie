@@ -18,22 +18,13 @@ struct ItemSearchView: View {
                 if let result = self.searchResult {
                     ForEach(result.products) { product in
                        // Section(header: Text(product.id)) {
-                        NavigationLink{
-                            SingleProductDetailView(singleProduct: self.$productResponse)
+                        NavigationLink {
+                            SingleProductDetailView(selectedProduct: product)
                         } label: {
                             Text(product.brands)
                                 .bold()
                                 .foregroundColor(.primary)
 
-                        }.onTapGesture {
-                                print("looking server shit")
-                                let url = URL(string: "https://off:off@world.openfoodfacts.org/api/v2/product/3017620422003")
-                                URLSession.shared.dataTask(with: url!) { (data, _, _) in
-                                    print("done with server shit")
-                                    let products = try! JSONDecoder().decode(ProductResponse.self, from: data!)
-                                    print("done decoding")
-                                    self.productResponse = products
-                                }.resume()                            
                         }
                             HStack {
                                 Text(product.brands)
