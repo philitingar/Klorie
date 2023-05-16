@@ -43,3 +43,12 @@ struct SingleProductDetailView: View {
         }.resume()
     }
 }
+
+struct SingleProductDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        let searchResult = Bundle.main.decode(ProductSearch.self, from: "SearchResults.json")
+        let selectedProduct = searchResult.products.first
+
+        SingleProductDetailView(selectedProduct: selectedProduct!)
+    }
+}
