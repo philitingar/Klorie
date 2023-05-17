@@ -14,11 +14,12 @@ import SwiftUI
 struct ProductResponse: Codable {
     var code: String
     var status: Int
-    var product: SingleProduct
+    var data: SingleProduct
     var statusVerbose: String
     
     enum CodingKeys: String, CodingKey {
-            case code, product, status
+            case code, status
+            case data = "product"
             case statusVerbose = "status_verbose"
         }
 
@@ -30,10 +31,12 @@ struct SingleProduct: Codable, Identifiable {
     var id: String
     var keywords: [String]
     var nutriments: SingleProductNutriments
+    var productName: String
     
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case keywords = "_keywords"
+        case productName = "product_name"
         case nutriments
     }
 }
@@ -43,6 +46,7 @@ struct SingleProduct: Codable, Identifiable {
 struct SingleProductNutriments: Codable {
     var carbohydrates, carbohydrates100G, carbohydratesServing: Double
     var carbohydratesUnit: String
+    let energyKcal100g: Double
     let fat, fat100G, fatServing: Double
     var fatUnit: String
     var fiber, fiber100G, fiberServing: Double?
@@ -61,6 +65,7 @@ struct SingleProductNutriments: Codable {
         case carbohydrates100G = "carbohydrates_100g"
         case carbohydratesServing = "carbohydrates_serving"
         case carbohydratesUnit = "carbohydrates_unit"
+        case energyKcal100g = "energy-kcal_100g"
         case fat
         case fat100G = "fat_100g"
         case fatServing = "fat_serving"

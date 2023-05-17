@@ -12,9 +12,8 @@ struct SingleProductDetailView: View {
     @State var selectedProduct: ProductSearchItem
     @State var singleProduct: ProductResponse?
     let singleItemURI = "https://off:off@world.openfoodfacts.org/api/v2/product/"
-    @State var numberOfServings = "1"
-    @State var servings = ["1 g", "100 g"]
     
+    @State var servings = ""
     
     var body: some View {
         List {
@@ -24,22 +23,16 @@ struct SingleProductDetailView: View {
                         Text(product.code)
                             .font(.headline)
                             .foregroundColor(.primary)
-                        Text("Product name")
+                        Text(product.data.productName)
                     }
                 }
                 Section(header: Text("Calories")) {
+                    TextField("Enter amount", text:$servings).keyboardType(.decimalPad)
                     
-                
-                
-                    Picker("Servings", selection: $numberOfServings) {
-                        ForEach(servings, id: \.self) { item in
-                            Text(item)
-                        }
-                    }
                     HStack {
                         Text("Calories for selected serving:")
                         Spacer()
-                        Text(numberOfServings)
+                        Text(String(format: "%.2f", product.data.nutriments.energyKcal100g))
                     }
                     
                 }
@@ -48,23 +41,23 @@ struct SingleProductDetailView: View {
                         HStack {
                             Text("Carbs")
                             Spacer()
-                            Text("Gramms")
+                            Text(String(format: "%.2f", product.data.nutriments.carbohydrates100G))
                             Spacer()
-                            Text("%")
+                            Text(product.data.nutriments.carbohydratesUnit)
                         }.padding()
                         HStack {
                             Text("Fat")
                             Spacer()
-                            Text("Gramms")
+                            Text(String(format: "%.2f", product.data.nutriments.fat100G))
                             Spacer()
-                            Text("%")
+                            Text(product.data.nutriments.fatUnit)
                         }.padding()
                         HStack {
                             Text("Protein")
                             Spacer()
-                            Text("Gramms")
+                            Text(String(format: "%.2f", product.data.nutriments.proteins100G))
                             Spacer()
-                            Text("%")
+                            Text(product.data.nutriments.proteinsUnit)
                         }.padding()
                     }
                     
@@ -96,3 +89,4 @@ struct SingleProductDetailView_Previews: PreviewProvider {
         SingleProductDetailView(selectedProduct: selectedProduct!)
     }
 }
+
