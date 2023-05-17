@@ -32,12 +32,14 @@ struct SingleProduct: Codable, Identifiable {
     var keywords: [String]
     var nutriments: SingleProductNutriments
     var productName: String
+    var nutriscoreData: SingleProductNutriscoreData
     
     enum CodingKeys: String, CodingKey {
         case id = "_id"
         case keywords = "_keywords"
         case productName = "product_name"
         case nutriments
+        case nutriscoreData = "nutriscore_data"
     }
 }
 
@@ -91,6 +93,16 @@ struct SingleProductNutriments: Codable {
         case sugarsServing = "sugars_serving"
         case sugarsUnit = "sugars_unit"
     }
-    
 }
+    
+struct SingleProductNutriscoreData: Codable {
+        var isBeverage: Int
+        var grade: String
+        
+        enum CodingKeys: String, CodingKey {
+            case isBeverage = "is_beverage"
+            case grade
+        }
+    }
+
 
