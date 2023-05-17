@@ -4,7 +4,7 @@
 //
 //  Created by Timea Bartha on 9/5/23.
 // let productresponse = try? JSONDecoder().decode(ProductResponse.self, from: jsonData)
-
+import Combine
 import SwiftUI
 
 struct SingleProductDetailView: View {
@@ -13,7 +13,10 @@ struct SingleProductDetailView: View {
     @State var singleProduct: ProductResponse?
     let singleItemURI = "https://off:off@world.openfoodfacts.org/api/v2/product/"
     
-    @State var servings = ""
+    @State var servings = 100.0
+    @State var carbs = 0.0
+    @State var fat = 0.0
+    @State var protein = 0.0
     
     var body: some View {
         List {
@@ -27,7 +30,12 @@ struct SingleProductDetailView: View {
                     }
                 }
                 Section(header: Text("Calories")) {
-                    TextField("Enter amount", text:$servings).keyboardType(.decimalPad)
+                    TextField("Enter amount", value: $servings, format: .number)
+                        .keyboardType(.decimalPad)
+                        .onReceive(Just(servings), perform: { newValue in
+                            self.fat = (product.data.nutriments.fat100G/100) * newValue
+
+                        })
                     
                     HStack {
                         Text("Calories for selected serving:")
@@ -41,21 +49,21 @@ struct SingleProductDetailView: View {
                         HStack {
                             Text("Carbs")
                             Spacer()
-                            Text(String(format: "%.2f", product.data.nutriments.carbohydrates100G))
+                            Text(String(format: "%.2f", carbs))
                             Spacer()
                             Text(product.data.nutriments.carbohydratesUnit)
                         }.padding()
                         HStack {
                             Text("Fat")
                             Spacer()
-                            Text(String(format: "%.2f", product.data.nutriments.fat100G))
+                            Text(String(format: "%.2f", fat))
                             Spacer()
                             Text(product.data.nutriments.fatUnit)
                         }.padding()
                         HStack {
                             Text("Protein")
                             Spacer()
-                            Text(String(format: "%.2f", product.data.nutriments.proteins100G))
+                            Text(String(format: "%.2f", protein))
                             Spacer()
                             Text(product.data.nutriments.proteinsUnit)
                         }.padding()
@@ -64,9 +72,10 @@ struct SingleProductDetailView: View {
                 }
             }
         }.onAppear(perform: loadData)
+        .onTapGesture {
+            self.hideKeyboard(focus: true)
+        }
     }
-    
-    
     
     func loadData() {
         self.singleProduct = nil
@@ -74,10 +83,17 @@ struct SingleProductDetailView: View {
         let url = URL(string: (singleItemURI + selectedProduct.id))
         URLSession.shared.dataTask(with: url!) { (data, _, _) in
             print("done with server shit")
-            let products = try! JSONDecoder().decode(ProductResponse.self, from: data!)
+            let loadedProduct = try! JSONDecoder().decode(ProductResponse.self, from: data!)
             print("done decoding")
-            self.singleProduct = products
+            self.singleProduct = loadedProduct
+            self.fat = loadedProduct.data.nutriments.fat100G
         }.resume()
+    }
+    
+    func hideKeyboard(focus: Bool) {
+        if focus {
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        }
     }
 }
 
