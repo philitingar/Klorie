@@ -9,9 +9,11 @@ import SwiftUI
 struct TabBarView: View {
     @StateObject var tabData = TabBarViewModel()
     
-    //init(){
-  //      UITabBar.appearance().isHidden = true
-   //}
+    init(){
+      // UITabBar.appearance().isHidden = true
+       // UITabBar.appearance().isTranslucent = false
+       // UITabBar.appearance().barTintColor = UIColor.red
+   }
     
     @Namespace var animation
     
@@ -37,9 +39,13 @@ struct TabBarView: View {
                 TabBarButton(title: "Calculator", image: "person.fill", animation: animation)
             }
                 .environmentObject(tabData)
-                .padding(.bottom,2)
-            ,alignment: .bottom
+                .padding(.vertical, 10)
+                .background(.thinMaterial,in: Capsule())
+                .padding(.horizontal,40)
+                .padding(.bottom,2),alignment: .bottom
+                
         )
+        .foregroundColor(.secondary)
         .navigationBarHidden(true)//this was added extra in order to tru hide tabbar in some view
         
     }

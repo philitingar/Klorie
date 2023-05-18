@@ -76,6 +76,9 @@ struct SingleProductDetailView: View {
                     }
                     
                 }
+                Section(header: Text("Nutriscore")) {
+                    
+                }
             }
         }.onAppear(perform: loadData)
         .onTapGesture {
