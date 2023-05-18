@@ -17,6 +17,7 @@ struct SingleProductDetailView: View {
     @State var carbs = 0.0
     @State var fat = 0.0
     @State var protein = 0.0
+    @State var calories = 0.0
     
     var body: some View {
         List {
@@ -30,17 +31,22 @@ struct SingleProductDetailView: View {
                     }
                 }
                 Section(header: Text("Calories")) {
-                    TextField("Enter amount", value: $servings, format: .number)
+                    TextField("Enter amount(g)", value: $servings, format: .number)
                         .keyboardType(.decimalPad)
                         .onReceive(Just(servings), perform: { newValue in
                             self.fat = (product.data.nutriments.fat100G/100) * newValue
+                            self.protein = (product.data.nutriments.proteins100G/100) * newValue
+                            self.carbs = (product.data.nutriments.carbohydrates100G/100) * newValue
 
                         })
                     
                     HStack {
                         Text("Calories for selected serving:")
                         Spacer()
-                        Text(String(format: "%.2f", product.data.nutriments.energyKcal100g))
+                        Text(String(format: "%.2f", calories))
+                            .onReceive(Just(servings), perform: { newValue in
+                                self.calories = (product.data.nutriments.energyKcal100g/100) * newValue
+                            })
                     }
                     
                 }
@@ -87,6 +93,11 @@ struct SingleProductDetailView: View {
             print("done decoding")
             self.singleProduct = loadedProduct
             self.fat = loadedProduct.data.nutriments.fat100G
+            self.protein = loadedProduct.data.nutriments.proteins100G
+            self.carbs = loadedProduct.data.nutriments.carbohydrates100G
+            self.calories = loadedProduct.data.nutriments.energyKcal100g
+
+
         }.resume()
     }
     
