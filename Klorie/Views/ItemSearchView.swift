@@ -14,6 +14,7 @@ struct ItemSearchView: View {
     
     var body: some View {
         VStack {
+            
             List {
                 if let result = self.searchResult {
                     ForEach(result.products) { product in
@@ -66,6 +67,7 @@ struct ItemSearchView: View {
 struct ItemSearchView_Previews: PreviewProvider {
     static var previews: some View {
         let productResponse = Bundle.main.decode(ProductResponse.self, from: "SingleProduct.json")
+        
 
         ItemSearchView(productResponse: productResponse)
     }

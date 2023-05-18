@@ -11,6 +11,7 @@ struct SingleProductDetailView: View {
     
     @State var selectedProduct: ProductSearchItem
     @State var singleProduct: ProductResponse?
+    
     let singleItemURI = "https://off:off@world.openfoodfacts.org/api/v2/product/"
     
     @State var servings = 100.0
@@ -18,6 +19,8 @@ struct SingleProductDetailView: View {
     @State var fat = 0.0
     @State var protein = 0.0
     @State var calories = 0.0
+    @State private var isPressed = false
+
     
     var body: some View {
         List {
@@ -77,7 +80,60 @@ struct SingleProductDetailView: View {
                     
                 }
                 Section(header: Text("Nutriscore")) {
-                    
+                    ZStack(alignment: .center ){
+                        HStack(alignment: .center) {
+                            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                                .fill(.cyan)
+                                .frame(width: 40, height: 50)
+                                .padding(-3)
+                                .overlay(
+                                    Text("A")
+                                        .font(.largeTitle)
+                                        .bold()
+                                )
+                                .scaleEffect(isPressed ? 0.5 : 1.0)
+                                .animation(.easeInOut, value: isPressed)
+                                
+                                
+                            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                                .fill(.mint)
+                                .frame(width: 40, height: 50)
+                                .padding(-3)
+                                .overlay(
+                                    Text("B")
+                                        .font(.largeTitle)
+                                        .bold()
+                                )
+                            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                                .fill(.yellow)
+                                .frame(width: 40, height: 50)
+                                .padding(-3)
+                                .overlay(
+                                    Text("C")
+                                        .font(.largeTitle)
+                                        .bold()
+                                )
+                            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                                .fill(.orange)
+                                .frame(width: 40, height: 50)
+                                .padding(-3)
+                                .overlay(
+                                    Text("D")
+                                        .font(.largeTitle)
+                                        .bold()
+                                )
+                            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                                .fill(.red)
+                                .frame(width: 40, height: 50)
+                                .padding(-3)
+                                .overlay(
+                                    Text("E")
+                                        .font(.largeTitle)
+                                        .bold()
+                                )
+                            
+                        }.padding(1)
+                    }
                 }
             }
         }.onAppear(perform: loadData)
@@ -88,10 +144,10 @@ struct SingleProductDetailView: View {
     
     func loadData() {
         self.singleProduct = nil
-        print("looking server shit")
+        print("looking server call")
         let url = URL(string: (singleItemURI + selectedProduct.id))
         URLSession.shared.dataTask(with: url!) { (data, _, _) in
-            print("done with server shit")
+            print("done with server call")
             let loadedProduct = try! JSONDecoder().decode(ProductResponse.self, from: data!)
             print("done decoding")
             self.singleProduct = loadedProduct
