@@ -20,10 +20,33 @@ struct SingleProductDetailView: View {
     @State var protein = 0.0
     @State var calories = 0.0
     
-    @State private var isNutriscoreValue = false
     @State var nutriScore = "a"
-    @State var scoreColor: Color = .secondary
+    @State var scoreColor:Color = .secondary
     
+    @State var showInfoSheet:Bool = false
+    
+    @State var  nutriScores = [
+        "a": Color.green,
+        "b": Color.mint,
+        "c": Color.yellow,
+        "d": Color.orange,
+        "e": Color.red
+    ]
+    
+    private var InfoButtonTwo:some View {
+        HStack {
+            Spacer()
+            Button {
+                showInfoSheet.toggle()
+            } label: {
+                Image(systemName: "info.bubble")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width:30)
+                    .foregroundColor(.primary)
+            }
+        }
+    }
     
     
     var body: some View {
@@ -87,124 +110,28 @@ struct SingleProductDetailView: View {
                     
                 }
                 // MARK: Nutriscore
-                if self.nutriScore == "" {
-                    
-                } else {
-                    Section(header: Text("Nutriscore")) {
+                
+                Section(header: Text("Nutriscore")) {
+                   
+                    if self.nutriScore == "" {
+                        Text("This item has no Nutri-Score in your country.")
+                    } else {
                         ZStack(alignment: .center ){
                             HStack(alignment: .center) {
-                                if self.nutriScore == "a" {
-                                    RoundedRectangle(cornerRadius: 15, style: .continuous)
-                                        .fill(.green)
-                                        .frame(width: 40, height: 45)
-                                        .padding(-3)
-                                        .overlay(
-                                            Text("A")
-                                                .font(.largeTitle)
-                                                .bold()
-                                        )
-                                    
-                                } else {
-                                    RoundedRectangle(cornerRadius: 15, style: .continuous)
-                                        .fill(.secondary)
-                                        .frame(width: 40, height: 45)
-                                        .padding(-3)
-                                        .overlay(
-                                            Text("A")
-                                                .font(.largeTitle)
-                                                .bold()
-                                        )
-                                }
                                 
-                                if self.nutriScore == "b" {
-                                    RoundedRectangle(cornerRadius: 15, style: .continuous)
-                                        .fill(.mint)
+                                ForEach(Array(nutriScores.keys).sorted(), id: \.self) { score in
+                                     RoundedRectangle(cornerRadius: 15, style: .continuous)
+                                        .fill(self.nutriScore == score ? nutriScores[score]! : .secondary)
                                         .frame(width: 40, height: 45)
                                         .padding(-3)
                                         .overlay(
-                                            Text("B")
+                                            Text(score.capitalized)
                                                 .font(.largeTitle)
-                                                .bold()
-                                        )
-                                    
-                                } else {
-                                    RoundedRectangle(cornerRadius: 15, style: .continuous)
-                                        .fill(.secondary)
-                                        .frame(width: 40, height: 45)
-                                        .padding(-3)
-                                        .overlay(
-                                            Text("B")
-                                                .font(.largeTitle)
-                                                .bold()
+                                                .bold().foregroundColor(.primary)
                                         )
                                 }
-                                if self.nutriScore == "c" {
-                                    RoundedRectangle(cornerRadius: 15, style: .continuous)
-                                        .fill(.green)
-                                        .frame(width: 40, height: 45)
-                                        .padding(-3)
-                                        .overlay(
-                                            Text("B")
-                                                .font(.largeTitle)
-                                                .bold()
-                                        )
-                                    
-                                } else {
-                                    RoundedRectangle(cornerRadius: 15, style: .continuous)
-                                        .fill(.secondary)
-                                        .frame(width: 40, height: 45)
-                                        .padding(-3)
-                                        .overlay(
-                                            Text("B")
-                                                .font(.largeTitle)
-                                                .bold()
-                                        )
-                                }
-                                if self.nutriScore == "d" {
-                                    RoundedRectangle(cornerRadius: 15, style: .continuous)
-                                        .fill(.green)
-                                        .frame(width: 40, height: 45)
-                                        .padding(-3)
-                                        .overlay(
-                                            Text("D")
-                                                .font(.largeTitle)
-                                                .bold()
-                                        )
-                                    
-                                } else {
-                                    RoundedRectangle(cornerRadius: 15, style: .continuous)
-                                        .fill(.secondary)
-                                        .frame(width: 40, height: 45)
-                                        .padding(-3)
-                                        .overlay(
-                                            Text("D")
-                                                .font(.largeTitle)
-                                                .bold()
-                                        )
-                                }
-                                if self.nutriScore == "e" {
-                                    RoundedRectangle(cornerRadius: 15, style: .continuous)
-                                        .fill(.red)
-                                        .frame(width: 40, height: 45)
-                                        .padding(-3)
-                                        .overlay(
-                                            Text("E")
-                                                .font(.largeTitle)
-                                                .bold()
-                                        )
-                                    
-                                } else {
-                                    RoundedRectangle(cornerRadius: 15, style: .continuous)
-                                        .fill(.secondary)
-                                        .frame(width: 40, height: 45)
-                                        .padding(-3)
-                                        .overlay(
-                                            Text("E")
-                                                .font(.largeTitle)
-                                                .bold()
-                                        )
-                                }
-                                
+                                                
+                                InfoButtonTwo
                             }.padding(1)
                         }
                         
@@ -214,6 +141,11 @@ struct SingleProductDetailView: View {
         }.onAppear(perform: loadData)
             .onTapGesture {
                 self.hideKeyboard(focus: true)
+            }
+        .navigationTitle("Calorie Calculator")
+        .foregroundColor(.primary)
+        .sheet(isPresented: $showInfoSheet) {
+                NutriScoreInfoSheetView()
             }
     }
     // MARK: LoadData
@@ -241,21 +173,7 @@ struct SingleProductDetailView: View {
             UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
         }
     }
-    func nutriScoreValueChanged() {
-        if nutriScore == "a" {
-            isNutriscoreValue = true
-        } else if nutriScore == "b" {
-            isNutriscoreValue = true
-        }  else if nutriScore == "c" {
-            isNutriscoreValue = true
-        } else if nutriScore == "d" {
-            isNutriscoreValue = true
-        } else if nutriScore == "e" {
-            isNutriscoreValue = true
-        }
-        
-        
-    }
+    
 }
 
 struct SingleProductDetailView_Previews: PreviewProvider {
