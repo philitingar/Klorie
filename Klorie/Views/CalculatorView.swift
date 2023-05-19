@@ -97,7 +97,7 @@ struct CalculatorView: View {
         .navigationTitle("Calorie Calculator")
         .foregroundColor(.primary)
         .sheet(isPresented: $showInfoSheet) {
-            InfoSheetView()
+            CalculatorInfoSheetView()
         }
     }
     

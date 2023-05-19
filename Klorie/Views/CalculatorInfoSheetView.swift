@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct InfoSheetView: View {
+struct CalculatorInfoSheetView: View {
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -40,12 +40,12 @@ struct InfoSheetView: View {
     }
 }
 
-struct InfoSheetView_Previews: PreviewProvider {
+struct CalculatorInfoSheetView_Previews: PreviewProvider {
     static var previews: some View {
-        InfoSheetView()
+        CalculatorInfoSheetView()
     }
 }
-extension InfoSheetView {
+extension CalculatorInfoSheetView {
     private var backButton:some View{
         Button {
             presentationMode.wrappedValue.dismiss()
