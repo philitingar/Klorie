@@ -23,7 +23,6 @@ struct SingleProductDetailView: View {
     @State var nutriScore = "a"
     @State var scoreColor:Color = .secondary
     
-    @State var showInfoSheet:Bool = false
     
     @State var  nutriScores = [
         "a": Color.green,
@@ -32,23 +31,7 @@ struct SingleProductDetailView: View {
         "d": Color.orange,
         "e": Color.red
     ]
-    
-    private var InfoButtonTwo:some View {
-        HStack {
-            Spacer()
-            Button {
-                showInfoSheet.toggle()
-            } label: {
-                Image(systemName: "info.bubble")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width:30)
-                    .foregroundColor(.primary)
-            }
-        }
-    }
-    
-    
+ 
     var body: some View {
         List {
             if let product = singleProduct {
@@ -116,7 +99,7 @@ struct SingleProductDetailView: View {
                     if self.nutriScore == "" {
                         Text("This item has no Nutri-Score in your country.")
                     } else {
-                        ZStack(alignment: .center ){
+                        
                             HStack(alignment: .center) {
                                 
                                 ForEach(Array(nutriScores.keys).sorted(), id: \.self) { score in
@@ -130,10 +113,9 @@ struct SingleProductDetailView: View {
                                                 .bold().foregroundColor(.primary)
                                         )
                                 }
-                                                
-                                InfoButtonTwo
-                            }.padding(1)
-                        }
+                                 
+                            
+                            }
                         
                     }
                 }
@@ -142,11 +124,7 @@ struct SingleProductDetailView: View {
             .onTapGesture {
                 self.hideKeyboard(focus: true)
             }
-        .navigationTitle("Calorie Calculator")
-        .foregroundColor(.primary)
-        .sheet(isPresented: $showInfoSheet) {
-                NutriScoreInfoSheetView()
-            }
+        
     }
     // MARK: LoadData
     func loadData() {

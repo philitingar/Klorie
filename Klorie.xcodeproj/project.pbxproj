@@ -26,7 +26,6 @@
 		26C4B5502A09341A006C9EB5 /* helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C4B54F2A09341A006C9EB5 /* helper.swift */; };
 		26C4B5522A0944F6006C9EB5 /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C4B5512A0944F6006C9EB5 /* BarcodeScannerView.swift */; };
 		26C4B55A2A0A9722006C9EB5 /* SingleProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C4B5592A0A9722006C9EB5 /* SingleProductDetailView.swift */; };
-		26C4B56C2A17AD23006C9EB5 /* NutriScoreInfoSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C4B56B2A17AD23006C9EB5 /* NutriScoreInfoSheetView.swift */; };
 		26EC82DE2A0264D7001C1B32 /* SearchResults.json in Resources */ = {isa = PBXBuildFile; fileRef = 26EC82DD2A0264D7001C1B32 /* SearchResults.json */; };
 		26EC82E02A026F05001C1B32 /* SingleProduct.json in Resources */ = {isa = PBXBuildFile; fileRef = 26EC82DF2A026F05001C1B32 /* SingleProduct.json */; };
 		26EC82E22A028DB4001C1B32 /* ProductSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EC82E12A028DB4001C1B32 /* ProductSearchResult.swift */; };
@@ -74,7 +73,6 @@
 		26C4B54F2A09341A006C9EB5 /* helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helper.swift; sourceTree = "<group>"; };
 		26C4B5512A0944F6006C9EB5 /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerView.swift; sourceTree = "<group>"; };
 		26C4B5592A0A9722006C9EB5 /* SingleProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleProductDetailView.swift; sourceTree = "<group>"; };
-		26C4B56B2A17AD23006C9EB5 /* NutriScoreInfoSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriScoreInfoSheetView.swift; sourceTree = "<group>"; };
 		26EC82DD2A0264D7001C1B32 /* SearchResults.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SearchResults.json; sourceTree = "<group>"; };
 		26EC82DF2A026F05001C1B32 /* SingleProduct.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SingleProduct.json; sourceTree = "<group>"; };
 		26EC82E12A028DB4001C1B32 /* ProductSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchResult.swift; sourceTree = "<group>"; };
@@ -187,7 +185,6 @@
 				26C4B5592A0A9722006C9EB5 /* SingleProductDetailView.swift */,
 				26C4B5512A0944F6006C9EB5 /* BarcodeScannerView.swift */,
 				268A4D9B29F94EF5002DECFE /* CalculatorInfoSheetView.swift */,
-				26C4B56B2A17AD23006C9EB5 /* NutriScoreInfoSheetView.swift */,
 				268A4DA42A013F49002DECFE /* PieSliceView.swift */,
 				268A4DA62A013F6B002DECFE /* PieChartView.swift */,
 			);
@@ -341,7 +338,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26C4B56C2A17AD23006C9EB5 /* NutriScoreInfoSheetView.swift in Sources */,
 				268A4DA72A013F6B002DECFE /* PieChartView.swift in Sources */,
 				26C4B54E2A0932F4006C9EB5 /* ItemSearchView.swift in Sources */,
 				26EC82E72A03E4CC001C1B32 /* KlorieDataModel.xcdatamodeld in Sources */,
