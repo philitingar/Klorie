@@ -24,6 +24,7 @@ struct CalculatorView: View {
     
     @State var gender:String = "Male"
     @State var activity:String = "Sedentary"
+    @State var weightLoss: String = "Maintan weight"
     
     @State var alertTitle:String = ""
     @State var showAlert:Bool = false
@@ -39,6 +40,8 @@ struct CalculatorView: View {
     let activitySelection: [String] = [
         "Sedentary","Lightly active","Moderately active","Active","Very active"
     ]
+    
+    let weightLossSelection: [String] = ["Maintain weight", "-0,25kg/week", "-0,50kg/week"]
     
     init(){
         UISegmentedControl.appearance().selectedSegmentTintColor =
@@ -102,63 +105,53 @@ struct CalculatorView: View {
         }
     }
     
+    struct GenderCalc {
+        var weight: Double
+        var height: Double
+        var age: Double
+        var baseKcal: Double
+    }
     
-    func kcalCalculator(gender:String,activity:String) {
+    let calculationVariables: [String: GenderCalc] = [
+        "Male": GenderCalc(weight: 13.397, height: 4.799, age: 5.677, baseKcal: 88.362),
+        "Female": GenderCalc(weight: 9.247, height: 3.098, age: 4.330, baseKcal: 447.593)
+    ]
+    
+    let activityModifiers: [String: Double] = [
+        "Sedentary": 1.2,
+        "Lightly active": 1.375,
+        "Moderately active": 1.55,
+        "Active": 1.725,
+        "Very active": 1.9
+    ]
+    
+    let weightLossModifiers: [String: Double] = [
+        "-0,25kg/week": 85,
+        "-0,50kg/week": 69
+    ]
+    
+    func kcalCalculator(gender: String, activity: String) {
         if textFieldisValid() {
-            var res = 0.0
-            if gender == "Male" {
-                let w = (13.397 * (Double(weight) ?? 0.0))
-                let h = (4.799 * (Double(height) ?? 0.0))
-                let a = (5.677 * (Double(age) ?? 0.0))
-                let total = ((88.362  + w + h) - a)
-                
-                switch(activity) {
-                case "Sedentary":
-                    res = total * 1.2
-                    break
-                case "Lightly active":
-                    res = total * 1.375
-                    break
-                case "Moderately active":
-                    res = total * 1.55
-                    break
-                case "Active":
-                    res = total * 1.725
-                    break
-                default:
-                    // "Very active"
-                    res = total * 1.9
-                }
-                userDailyCal = String(format: "%.0f", res)
-     //           vm.addKcal(kcal: vm.userDailyCal)
+            var baseKcal = 0.0
+            var calcVars: GenderCalc = calculationVariables[gender]!
+            
+            let w = (calcVars.weight * (Double(weight) ?? 0.0))
+            let h = (calcVars.height * (Double(height) ?? 0.0))
+            let a = (calcVars.age * (Double(age) ?? 0.0))
+            baseKcal = ((calcVars.baseKcal  + w + h) - a)
+            
+            var activityKcal =  baseKcal * activityModifiers[activity]!
+            
+            var weightLossKcal = 0.0
+            
+            if let weightlossModifier = weightLossModifiers[weightLoss] {
+                weightLossKcal = (weightlossModifier * activityKcal)/100
             } else {
-                let w = (9.247 * (Double(weight) ?? 0.0))
-                let h = (3.098 * (Double(height) ?? 0.0))
-                let a = (4.330 * (Double(age) ?? 0.0))
-                let total = ((447.593 + w + h) - a)
-                
-                switch(activity) {
-                case "Sedentary":
-                    res = total * 1.2
-                    break
-                case "Lightly active":
-                    res = total * 1.375
-                    break
-                case "Moderately active":
-                    res = total * 1.55
-                    break
-                case "Active":
-                    res = total * 1.725
-                    break
-                default:
-                    // "Very active"
-                    res = total * 1.9
-                }
-                
-                userDailyCal = String(format: "%.0f", res)
-        //        vm.addKcal(kcal: vm.userDailyCal)
+                weightLossKcal = activityKcal
             }
             
+            userDailyCal = String(format: "%.0f", weightLossKcal)
+            //        vm.addKcal(kcal: vm.userDailyCal)
         }
     }
     
@@ -271,6 +264,30 @@ extension CalculatorView {
                 .tint(.white)
             }
             .frame(maxWidth:.infinity)
+            
+            HStack {
+                Text("Pick weigh tloss option:")
+                    .font(.headline)
+                    .foregroundColor(.primary)
+                Picker(
+                    selection:$weightLoss,
+                    label:Text("Weight Loss"),
+                    content:{
+                        ForEach(weightLossSelection.indices,id:\.self){ index in
+                            Text(weightLossSelection[index])
+                                .tag(weightLossSelection[index])
+                            
+                        }
+                    })
+                .pickerStyle(MenuPickerStyle())
+                .tint(.white)
+            }
+            .frame(maxWidth:.infinity)
+
+
+
+            
+            
         }
     }
     

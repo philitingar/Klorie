@@ -7,11 +7,7 @@
 import Combine
 import SwiftUI
 
-extension View{
-    func dismisstheKeyBoard(){
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder),to: nil,from: nil,for: nil)
-    }
-}
+
 
 struct SingleProductDetailView: View {
     
