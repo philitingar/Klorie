@@ -51,7 +51,7 @@ struct ItemSearchView: View {
                         
                     }
                 }
-            }
+            }   
             .navigationBarTitle("", displayMode: .inline)
             
         }

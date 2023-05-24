@@ -14,10 +14,42 @@
             filePath = "Klorie/Views/CalculatorView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
             landmarkName = "kcalCalculator(gender:activity:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1D0FDC3B-B2F3-4565-AEA8-C9B8E1A6C9AA - 785355874df35629"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Klorie.CalculatorView.kcalCalculator(gender: Swift.String, activity: Swift.String) -&gt; ()"
+                  moduleName = "Klorie"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/timi/Desktop/IOS%20codes/Klorie/Klorie/Views/CalculatorView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "122"
+                  endingLineNumber = "122"
+                  offsetFromSymbolStart = "1084">
+               </Location>
+               <Location
+                  uuid = "1D0FDC3B-B2F3-4565-AEA8-C9B8E1A6C9AA - 785355874df35648"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Klorie.CalculatorView.kcalCalculator(gender: Swift.String, activity: Swift.String) -&gt; ()"
+                  moduleName = "Klorie"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/timi/Desktop/IOS%20codes/Klorie/Klorie/Views/CalculatorView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "123"
+                  endingLineNumber = "123"
+                  offsetFromSymbolStart = "1084">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -29,6 +29,7 @@ struct CalculatorView: View {
     @State var showAlert:Bool = false
     
     @State var showInfoSheet:Bool = false
+    @State var userDailyCal:String = ""
     
     
     let genderSelection: [String] = [
@@ -81,7 +82,7 @@ struct CalculatorView: View {
                         .alert("Recommended daily calories:", isPresented: $showAlert, actions: {
                             
                         }, message: {
-                 //           Text("\(vm.userDailyCal) kcal")
+                            Text("\(userDailyCal) kcal")
                         })
                         TargetUserKcalSection
                     }
@@ -105,11 +106,11 @@ struct CalculatorView: View {
     func kcalCalculator(gender:String,activity:String) {
         if textFieldisValid() {
             var res = 0.0
-            if gender == "Male"{
-                let w = (13.75 * (Double(weight) ?? 0.0))
-                let h = (5.003 * (Double(height) ?? 0.0))
-                let a = (6.755 * (Double(age) ?? 0.0))
-                let total = ((66.47  + w + h) - a)
+            if gender == "Male" {
+                let w = (13.397 * (Double(weight) ?? 0.0))
+                let h = (4.799 * (Double(height) ?? 0.0))
+                let a = (5.677 * (Double(age) ?? 0.0))
+                let total = ((88.362  + w + h) - a)
                 
                 switch(activity) {
                 case "Sedentary":
@@ -128,16 +129,15 @@ struct CalculatorView: View {
                     // "Very active"
                     res = total * 1.9
                 }
-       //         vm.userDailyCal =
-                String(format: "%.0f", res)
+                userDailyCal = String(format: "%.0f", res)
      //           vm.addKcal(kcal: vm.userDailyCal)
             } else {
-                let w = (9.563 * (Double(weight) ?? 0.0))
-                let h = (1.850 * (Double(height) ?? 0.0))
-                let a = (4.676 * (Double(age) ?? 0.0))
-                let total = ((655.1 + w + h) - a)
+                let w = (9.247 * (Double(weight) ?? 0.0))
+                let h = (3.098 * (Double(height) ?? 0.0))
+                let a = (4.330 * (Double(age) ?? 0.0))
+                let total = ((447.593 + w + h) - a)
                 
-                switch(activity){
+                switch(activity) {
                 case "Sedentary":
                     res = total * 1.2
                     break
@@ -155,7 +155,7 @@ struct CalculatorView: View {
                     res = total * 1.9
                 }
                 
-        //        vm.userDailyCal = String(format: "%.0f", res)
+                userDailyCal = String(format: "%.0f", res)
         //        vm.addKcal(kcal: vm.userDailyCal)
             }
             
