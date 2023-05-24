@@ -7,6 +7,12 @@
 import Combine
 import SwiftUI
 
+extension View{
+    func dismisstheKeyBoard(){
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder),to: nil,from: nil,for: nil)
+    }
+}
+
 struct SingleProductDetailView: View {
     
     @State var selectedProduct: ProductSearchItem
@@ -23,7 +29,8 @@ struct SingleProductDetailView: View {
     @State var nutriScore = "a"
     @State var scoreColor:Color = .secondary
     
-    
+    @State var showInfoSheet:Bool = false
+
     @State var  nutriScores = [
         "a": Color.green,
         "b": Color.mint,
@@ -33,96 +40,89 @@ struct SingleProductDetailView: View {
     ]
  
     var body: some View {
-        List {
-            if let product = singleProduct {
-                // MARK: Product
-                Section(header: Text("Product")) {
-                    VStack(alignment: .leading) {
-                        Text(product.code)
-                            .font(.headline)
-                            .foregroundColor(.primary)
-                        Text(product.data.productName)
-                    }
-                }
-                // MARK: Calories
-                Section(header: Text("Calories")) {
-                    TextField("Enter amount(g)", value: $servings, format: .number)
-                        .keyboardType(.decimalPad)
-                        .onReceive(Just(servings), perform: { newValue in
-                            self.fat = (product.data.nutriments.fat100G/100) * newValue
-                            self.protein = (product.data.nutriments.proteins100G/100) * newValue
-                            self.carbs = (product.data.nutriments.carbohydrates100G/100) * newValue
-                            
-                        })
+        
+            List {
+                if let product = singleProduct {
                     
-                    HStack {
-                        Text("Calories for selected serving:")
-                        Spacer()
-                        Text(String(format: "%.2f", calories))
-                            .onReceive(Just(servings), perform: { newValue in
-                                self.calories = (product.data.nutriments.energyKcal100g/100) * newValue
-                            })
-                    }
-                    
-                }
-                // MARK: Nutrients
-                Section(header: Text("Nutrients")) {
-                    VStack {
-                        HStack {
-                            Text("Carbs")
-                            Spacer()
-                            Text(String(format: "%.2f", carbs))
-                            Spacer()
-                            Text(product.data.nutriments.carbohydratesUnit)
-                        }.padding()
-                        HStack {
-                            Text("Fat")
-                            Spacer()
-                            Text(String(format: "%.2f", fat))
-                            Spacer()
-                            Text(product.data.nutriments.fatUnit)
-                        }.padding()
-                        HStack {
-                            Text("Protein")
-                            Spacer()
-                            Text(String(format: "%.2f", protein))
-                            Spacer()
-                            Text(product.data.nutriments.proteinsUnit)
-                        }.padding()
-                    }
-                    
-                }
-                // MARK: Nutriscore
-                
-                Section(header: Text("Nutriscore")) {
-                   
-                    if self.nutriScore == "" {
-                        Text("This item has no Nutri-Score in your country.")
-                    } else {
-                        
-                            HStack(alignment: .center) {
-                                
-                                ForEach(Array(nutriScores.keys).sorted(), id: \.self) { score in
-                                     RoundedRectangle(cornerRadius: 15, style: .continuous)
-                                        .fill(self.nutriScore == score ? nutriScores[score]! : .secondary)
-                                        .frame(width: 40, height: 45)
-                                        .padding(-3)
-                                        .overlay(
-                                            Text(score.capitalized)
-                                                .font(.largeTitle)
-                                                .bold().foregroundColor(.primary)
-                                        )
-                                }
-                                 
-                            
+                        // MARK: Product
+                        Section(header: Text("Product")) {
+                            VStack(alignment: .leading) {
+                                Text(product.code)
+                                    .font(.headline)
+                                    .foregroundColor(.primary)
+                                Text(product.data.productName)
                             }
+                        }
+                        // MARK: Calories
+                        Section(header: Text("Calories")) {
+                            TextField("Enter amount(g)", value: $servings, format: .number)
+                                .keyboardType(.decimalPad)
+                                .onReceive(Just(servings), perform: { newValue in
+                                    self.fat = (product.data.nutriments.fat100G/100) * newValue
+                                    self.protein = (product.data.nutriments.proteins100G/100) * newValue
+                                    self.carbs = (product.data.nutriments.carbohydrates100G/100) * newValue
+                                    
+                                })
+                            
+                            HStack {
+                                Text("Calories for selected serving:")
+                                Spacer()
+                                Text(String(format: "%.2f", calories))
+                                    .onReceive(Just(servings), perform: { newValue in
+                                        self.calories = (product.data.nutriments.energyKcal100g/100) * newValue
+                                    })
+                            }
+                            
+                        }
+                        // MARK: Nutrients
+                        Section(header: Text("Nutrients")) {
+                            VStack {
+                                HStack {
+                                    Text("Carbs")
+                                    Spacer()
+                                    Text(String(format: "%.2f", carbs))
+                                    Spacer()
+                                    Text(product.data.nutriments.carbohydratesUnit)
+                                }.padding()
+                                HStack {
+                                    Text("Fat")
+                                    Spacer()
+                                    Text(String(format: "%.2f", fat))
+                                    Spacer()
+                                    Text(product.data.nutriments.fatUnit)
+                                }.padding()
+                                HStack {
+                                    Text("Protein")
+                                    Spacer()
+                                    Text(String(format: "%.2f", protein))
+                                    Spacer()
+                                    Text(product.data.nutriments.proteinsUnit)
+                                }.padding()
+                            }
+                            
+                        }
+                        // MARK: Nutriscore
+                        NutriDataInput
+                        
+                    
+                }
+            }.onAppear(perform: loadData)
+        
+            .simultaneousGesture(TapGesture().onEnded({
+                self.hideKeyboard(focus: true)
+            }))
+            .sheet(isPresented: $showInfoSheet) {
+                NutriscoreInfoSheetView()
+            }
+        
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                    } label: {
+                        Text ("Done")
                         
                     }
                 }
-            }
-        }.onAppear(perform: loadData)
-            .onTapGesture {
-                self.hideKeyboard(focus: true)
             }
         
     }
@@ -163,3 +163,50 @@ struct SingleProductDetailView_Previews: PreviewProvider {
     }
 }
 
+extension SingleProductDetailView {
+    
+    private var InfoButton:some View {
+        HStack {
+            Spacer()
+            Button {
+            } label: {
+                Image(systemName: "info.bubble")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width:30)
+                    .foregroundColor(.primary)
+            }.simultaneousGesture(TapGesture().onEnded({
+                showInfoSheet.toggle()
+            }))
+        }
+    }
+    private var NutriDataInput: some View {
+        Section(header: Text("Nutriscore")) {
+            
+            if self.nutriScore == "" {
+                Text("This item has no Nutri-Score in your country.")
+            } else {
+                
+                
+                HStack(alignment: .center) {
+                    
+                    ForEach(Array(nutriScores.keys).sorted(), id: \.self) { score in
+                        RoundedRectangle(cornerRadius: 15, style: .continuous)
+                            .fill(self.nutriScore == score ? nutriScores[score]! : .secondary)
+                            .frame(width: 40, height: 45)
+                            .padding(-3)
+                            .overlay(
+                                Text(score.capitalized)
+                                    .font(.largeTitle)
+                                    .bold().foregroundColor(.primary)
+                            )
+                    }
+                    
+                    InfoButton
+                }
+                
+                
+            }
+        }
+    }
+}
