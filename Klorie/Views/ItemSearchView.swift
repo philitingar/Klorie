@@ -27,11 +27,7 @@ struct ItemSearchView: View {
                                 .foregroundColor(.primary)
 
                         }
-                            HStack {
-                                Text(product.brands)
-                                Spacer()
-                                Text(product.productName ?? "None")
-                            }
+                            
                             
                         }
                     }
