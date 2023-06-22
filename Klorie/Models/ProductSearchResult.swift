@@ -44,4 +44,5 @@ struct ProductSearchItem: Codable, Identifiable {
 
 enum NutritionData: String, Codable {
     case on = "on"
+    case off = "null"
 }

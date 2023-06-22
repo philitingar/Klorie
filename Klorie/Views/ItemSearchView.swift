@@ -12,6 +12,8 @@ struct ItemSearchView: View {
     @State var searchResult : ProductSearch?
     @State var productResponse : ProductResponse?
     
+    @State var searchItemURL = "https://world.openfoodfacts.org/api/v2/search?sort_by=unique_scans_n&fields=code,product_name,categories,brands,brands_imported,nutrition_data,serving_size,id&brands_tags="
+    
     var body: some View {
         VStack {
             
@@ -22,7 +24,7 @@ struct ItemSearchView: View {
                         NavigationLink {
                             SingleProductDetailView(selectedProduct: product)
                         } label: {
-                            Text(product.brands)
+                            Text(product.productName ?? product.brands)
                                 .bold()
                                 .foregroundColor(.primary)
 
@@ -35,8 +37,8 @@ struct ItemSearchView: View {
             }
             .searchable(text: $searchText, prompt: "Search for a food")
             .onChange(of: searchText, perform: { newValue in
-                if !newValue.isEmpty {
-                    searchResult = Bundle.main.decode(ProductSearch.self, from: "SearchResults.json")
+                if !newValue.isEmpty && newValue.count > 2 {
+                     loadData(itemName: newValue)
                 } else {
                     searchResult = nil
                 }
@@ -53,10 +55,33 @@ struct ItemSearchView: View {
                 }
             }   
             .navigationBarTitle("", displayMode: .inline)
-            
-        }
         
     }
+    
+    func loadData(itemName: String) {
+        self.searchResult = nil
+        let path = itemName.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        let url = URL(string: (searchItemURL + path))
+        guard let url = url else {
+            return
+        }
+        print("DEBUG: Searching for \(url)")
+        URLSession.shared.dataTask(with: url) { (data, _, _) in
+            guard let data = data else {
+                return
+            }
+            print("DEBUG: Received Data")
+
+            do {
+                self.searchResult = try JSONDecoder().decode(ProductSearch.self, from: data)
+            } catch {
+                print("DEBUG: Failed to Parse. error: \(error)")
+                return
+            }
+        }.resume()
+    }
+    
+}
     
 
 

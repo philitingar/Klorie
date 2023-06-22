@@ -31,8 +31,8 @@ struct SingleProduct: Codable, Identifiable {
     var id: String
     var keywords: [String]
     var nutriments: SingleProductNutriments
-    var productName: String
-    var nutriscoreData: SingleProductNutriscoreData
+    var productName: String?
+    var nutriscoreData: SingleProductNutriscoreData?
     
     enum CodingKeys: String, CodingKey {
         case id = "_id"
@@ -46,28 +46,28 @@ struct SingleProduct: Codable, Identifiable {
 // MARK: - Single Product Nutriments
 
 struct SingleProductNutriments: Codable {
-    var carbohydrates, carbohydrates100G, carbohydratesServing: Double
-    var carbohydratesUnit: String
-    let energyKcal100g: Double
-    let fat, fat100G, fatServing: Double
-    var fatUnit: String
+    var carbohydrates, carbohydrates100G, carbohydratesServing: Double?
+    var carbohydratesUnit: String?
+    let energyKcal100G: Double?
+    let fat, fat100G, fatServing: Double?
+    var fatUnit: String?
     var fiber, fiber100G, fiberServing: Double?
     var fiberUnit: String?
-    var proteins, proteins100G, proteinsServing: Double
-    var proteinsUnit: String
-    var salt, salt100G, saltServing: Double
-    var saltUnit: String
-    var sodium, sodium100G, sodiumServing: Double
-    var sodiumUnit: String
-    var sugars, sugars100G, sugarsServing: Double
-    var sugarsUnit: String
+    var proteins, proteins100G, proteinsServing: Double?
+    var proteinsUnit: String?
+    var salt, salt100G, saltServing: Double?
+    var saltUnit: String?
+    var sodium, sodium100G, sodiumServing: Double?
+    var sodiumUnit: String?
+    var sugars, sugars100G, sugarsServing: Double?
+    var sugarsUnit: String?
     
     enum CodingKeys: String, CodingKey {
         case carbohydrates
         case carbohydrates100G = "carbohydrates_100g"
         case carbohydratesServing = "carbohydrates_serving"
         case carbohydratesUnit = "carbohydrates_unit"
-        case energyKcal100g = "energy-kcal_100g"
+        case energyKcal100G = "energy-kcal_100g"
         case fat
         case fat100G = "fat_100g"
         case fatServing = "fat_serving"

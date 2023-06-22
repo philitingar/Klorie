@@ -46,7 +46,7 @@ struct SingleProductDetailView: View {
                                 Text(product.code)
                                     .font(.headline)
                                     .foregroundColor(.primary)
-                                Text(product.data.productName)
+                                Text(product.data.productName ?? "None")
                             }
                         }
                         // MARK: Calories
@@ -54,9 +54,9 @@ struct SingleProductDetailView: View {
                             TextField("Enter amount(g)", value: $servings, format: .number)
                                 .keyboardType(.decimalPad)
                                 .onReceive(Just(servings), perform: { newValue in
-                                    self.fat = (product.data.nutriments.fat100G/100) * newValue
-                                    self.protein = (product.data.nutriments.proteins100G/100) * newValue
-                                    self.carbs = (product.data.nutriments.carbohydrates100G/100) * newValue
+                                    self.fat = (product.data.nutriments.fat100G ?? 0.0/100) * newValue
+                                    self.protein = (product.data.nutriments.proteins100G ?? 0.0/100) * newValue
+                                    self.carbs = (product.data.nutriments.carbohydrates100G ?? 0.0/100) * newValue
                                     
                                 })
                             
@@ -65,7 +65,7 @@ struct SingleProductDetailView: View {
                                 Spacer()
                                 Text(String(format: "%.2f", calories))
                                     .onReceive(Just(servings), perform: { newValue in
-                                        self.calories = (product.data.nutriments.energyKcal100g/100) * newValue
+                                        self.calories = (product.data.nutriments.energyKcal100G ?? 0.0/100) * newValue
                                     })
                             }
                             
@@ -78,21 +78,21 @@ struct SingleProductDetailView: View {
                                     Spacer()
                                     Text(String(format: "%.2f", carbs))
                                     Spacer()
-                                    Text(product.data.nutriments.carbohydratesUnit)
+                                    Text(product.data.nutriments.carbohydratesUnit ?? "None")
                                 }.padding()
                                 HStack {
                                     Text("Fat")
                                     Spacer()
                                     Text(String(format: "%.2f", fat))
                                     Spacer()
-                                    Text(product.data.nutriments.fatUnit)
+                                    Text(product.data.nutriments.fatUnit ?? "None")
                                 }.padding()
                                 HStack {
                                     Text("Protein")
                                     Spacer()
                                     Text(String(format: "%.2f", protein))
                                     Spacer()
-                                    Text(product.data.nutriments.proteinsUnit)
+                                    Text(product.data.nutriments.proteinsUnit ?? "None")
                                 }.padding()
                             }
                             
@@ -125,18 +125,18 @@ struct SingleProductDetailView: View {
     // MARK: LoadData
     func loadData() {
         self.singleProduct = nil
-        print("looking server call")
+        print("DEBUG: Single product:looking server call")
         let url = URL(string: (singleItemURI + selectedProduct.id))
         URLSession.shared.dataTask(with: url!) { (data, _, _) in
-            print("done with server call")
+            print("DEBUG: Single product:done with server call")
             let loadedProduct = try! JSONDecoder().decode(ProductResponse.self, from: data!)
-            print("done decoding")
+            print("DEBUG: Single product:done decoding")
             self.singleProduct = loadedProduct
-            self.fat = loadedProduct.data.nutriments.fat100G
-            self.protein = loadedProduct.data.nutriments.proteins100G
-            self.carbs = loadedProduct.data.nutriments.carbohydrates100G
-            self.calories = loadedProduct.data.nutriments.energyKcal100g
-            self.nutriScore = loadedProduct.data.nutriscoreData.grade
+            self.fat = loadedProduct.data.nutriments.fat100G ?? 0.0
+            self.protein = loadedProduct.data.nutriments.proteins100G ?? 0.0
+            self.carbs = loadedProduct.data.nutriments.carbohydrates100G ?? 0.0
+            self.calories = loadedProduct.data.nutriments.energyKcal100G ?? 0.0
+            self.nutriScore = loadedProduct.data.nutriscoreData?.grade ?? "0"
             
             
         }.resume()
