@@ -44,16 +44,7 @@ struct ItemSearchView: View {
                 }
             })
             
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink {
-                        BarcodeScannerView()
-                    } label: {
-                        Label("Scan", systemImage: "barcode.viewfinder")
-                        
-                    }
-                }
-            }   
+             
             .navigationBarTitle("", displayMode: .inline)
         
     }
