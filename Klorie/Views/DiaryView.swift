@@ -21,7 +21,7 @@ struct DiaryView: View {
                     }
                     //Foreach for items that are added, include HStack for calorie count
                     NavigationLink {
-                        ItemSearchView()
+                        AddProductView()
                     } label: {
                         Text("ADD FOOD")
                             .bold()
@@ -37,7 +37,7 @@ struct DiaryView: View {
                     }
                     //Foreach for items that are added, include HStack for calorie count
                     NavigationLink {
-                        ItemSearchView()
+                        AddProductView()
                     } label: {
                         Text("ADD FOOD")
                             .bold()
@@ -53,7 +53,7 @@ struct DiaryView: View {
                     }
                     //Foreach for items that are added, include HStack for calorie count
                     NavigationLink {
-                        ItemSearchView()
+                        AddProductView()
                     } label: {
                         Text("ADD FOOD")
                             .bold()
@@ -69,7 +69,7 @@ struct DiaryView: View {
                     }
                     //Foreach for items that are added, include HStack for calorie count
                     NavigationLink {
-                        ItemSearchView()
+                        AddProductView()
                     } label: {
                         Text("ADD FOOD")
                             .bold()
