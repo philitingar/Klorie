@@ -50,7 +50,7 @@ struct SingleProductDetailView: View {
                             }
                         }
                         // MARK: Calories
-                        Section(header: Text("Calories")) {
+                        Section(header: Text("Enter the amount of desired Calories")) {
                             TextField("Enter amount(g)", value: $servings, format: .number)
                                 .keyboardType(.decimalPad)
                                 .onReceive(Just(servings), perform: { newValue in
