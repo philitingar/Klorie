@@ -64,7 +64,7 @@ struct CalculatorView: View {
                             kcalCalculator(gender: gender,
                                            activity: activity)
                             
-                            resetTextField()
+                            
                             
                             showAlert.toggle()
                             
@@ -168,12 +168,7 @@ struct CalculatorView: View {
         return true
     }
     
-    func resetTextField() {
-        height = ""
-        age = ""
-        weight = ""
-        userTargetKcal = ""
-    }
+  
 }
 
 struct CalculatorView_Previews: PreviewProvider {
@@ -302,9 +297,9 @@ extension CalculatorView {
                 .font(.headline)
                 .keyboardType(.decimalPad)
             if directKcalTextFieldValidation(){
-                Button{
+                Button {
                     
-                    resetTextField()
+                    
                 }label: {
                     Image(systemName:"checkmark")
                         .resizable()
