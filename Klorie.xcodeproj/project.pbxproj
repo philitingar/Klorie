@@ -19,6 +19,7 @@
 		266F67CC29DDDBBC00A2A92C /* NutrientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266F67CB29DDDBBC00A2A92C /* NutrientsView.swift */; };
 		266F681529DEF35F00A2A92C /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266F681429DEF35F00A2A92C /* DiaryView.swift */; };
 		2680536C2A4B30A00078554F /* AddProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680536B2A4B30A00078554F /* AddProductView.swift */; };
+		268053702A4DCD8C0078554F /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2680536F2A4DCD8C0078554F /* DataController.swift */; };
 		268A4D9C29F94EF5002DECFE /* CalculatorInfoSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268A4D9B29F94EF5002DECFE /* CalculatorInfoSheetView.swift */; };
 		268A4DA52A013F49002DECFE /* PieSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268A4DA42A013F49002DECFE /* PieSliceView.swift */; };
 		268A4DA72A013F6B002DECFE /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268A4DA62A013F6B002DECFE /* PieChartView.swift */; };
@@ -68,6 +69,7 @@
 		266F67CB29DDDBBC00A2A92C /* NutrientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientsView.swift; sourceTree = "<group>"; };
 		266F681429DEF35F00A2A92C /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
 		2680536B2A4B30A00078554F /* AddProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductView.swift; sourceTree = "<group>"; };
+		2680536F2A4DCD8C0078554F /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		268A4D9B29F94EF5002DECFE /* CalculatorInfoSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorInfoSheetView.swift; sourceTree = "<group>"; };
 		268A4DA42A013F49002DECFE /* PieSliceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieSliceView.swift; sourceTree = "<group>"; };
 		268A4DA62A013F6B002DECFE /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				26567D1129E6BCE8003DAD3B /* ViewModel */,
 				268A4D9D29F95700002DECFE /* Models */,
 				266F681329DEF33900A2A92C /* Views */,
+				2680536E2A4DCD390078554F /* Controller */,
 				266F67A129DDD06400A2A92C /* Assets.xcassets */,
 				26EC82DD2A0264D7001C1B32 /* SearchResults.json */,
 				26EC82DF2A026F05001C1B32 /* SingleProduct.json */,
@@ -195,6 +198,14 @@
 				268A4DA62A013F6B002DECFE /* PieChartView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2680536E2A4DCD390078554F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2680536F2A4DCD8C0078554F /* DataController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		268A4D9D29F95700002DECFE /* Models */ = {
@@ -349,6 +360,7 @@
 				26EC82E72A03E4CC001C1B32 /* KlorieDataModel.xcdatamodeld in Sources */,
 				26C4B5502A09341A006C9EB5 /* helper.swift in Sources */,
 				26567D1329E6BD0F003DAD3B /* TabBarViewModel.swift in Sources */,
+				268053702A4DCD8C0078554F /* DataController.swift in Sources */,
 				268A4DA52A013F49002DECFE /* PieSliceView.swift in Sources */,
 				26567D1529E6BD34003DAD3B /* TabBarView.swift in Sources */,
 				2680536C2A4B30A00078554F /* AddProductView.swift in Sources */,
