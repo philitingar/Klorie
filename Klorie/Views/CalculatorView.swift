@@ -5,6 +5,7 @@
 //  Created by Timea Bartha on 11/4/23.
 //
 
+import CoreData
 import SwiftUI
 
 extension View{
@@ -14,13 +15,13 @@ extension View{
 }
 struct CalculatorView: View {
     
-   // @EnvironmentObject var vm : MealViewModel
+    @Environment(\.managedObjectContext) var moc //environment property to store our managed object context:
     
     
-    @State var age = ""
-    @State var height:String = ""
-    @State var weight:String = ""
-    @State var userTargetKcal:String = ""
+    @State var age = 0
+    @State var height = 0
+    @State var weight = 0.0
+    @State var userTargetKcal = 0
     
     @State var gender:String = "Male"
     @State var activity:String = "Sedentary"
@@ -30,7 +31,7 @@ struct CalculatorView: View {
     @State var showAlert:Bool = false
     
     @State var showInfoSheet:Bool = false
-    @State var userDailyCal:String = ""
+    @State var userDailyCal = 0
     
     
     let genderSelection: [String] = [
@@ -63,10 +64,12 @@ struct CalculatorView: View {
                         Button{
                             kcalCalculator(gender: gender,
                                            activity: activity)
-                            
-                            
-                            
                             showAlert.toggle()
+                            let newUser = User(context: moc)
+                            newUser.age = Int16(age)
+                            newUser.height = Int16(height)
+                            newUser.weight = weight
+                            newUser.userDailyCal = Int16(userDailyCal)
                             
                         } label: {
                             Text("Calculate")
@@ -135,9 +138,9 @@ struct CalculatorView: View {
             var baseKcal = 0.0
             var calcVars: GenderCalc = calculationVariables[gender]!
             
-            let w = (calcVars.weight * (Double(weight) ?? 0.0))
-            let h = (calcVars.height * (Double(height) ?? 0.0))
-            let a = (calcVars.age * (Double(age) ?? 0.0))
+            let w = (calcVars.weight * Double(weight))
+            let h = (calcVars.height * Double(height))
+            let a = (calcVars.age * Double(age))
             baseKcal = ((calcVars.baseKcal  + w + h) - a)
             
             var activityKcal =  baseKcal * activityModifiers[activity]!
@@ -150,25 +153,24 @@ struct CalculatorView: View {
                 weightLossKcal = activityKcal
             }
             
-            userDailyCal = String(format: "%.0f", weightLossKcal)
+            userDailyCal = Int(weightLossKcal)
             //        vm.addKcal(kcal: vm.userDailyCal)
         }
     }
     
     func textFieldisValid() -> Bool {
-        if(age.count < 2 || weight.count < 2 || height.count < 3){
-            return false
-        }
-        return true
-    }
-    func directKcalTextFieldValidation() -> Bool {
-        if(userTargetKcal.count < 3) {
+        if(age > 0 || weight > 0 || height > 0){
             return false
         }
         return true
     }
     
-  
+    func directKcalTextFieldValidation() -> Bool {
+        if(userTargetKcal > 0) {
+            return false
+        }
+        return true
+    }
 }
 
 struct CalculatorView_Previews: PreviewProvider {
@@ -179,7 +181,6 @@ struct CalculatorView_Previews: PreviewProvider {
 }
 
 extension CalculatorView {
-    
     private var InfoButton:some View {
         HStack {
             Spacer()
@@ -194,10 +195,11 @@ extension CalculatorView {
             }
         }
     }
+    
     private var TextFieldInputsCalcButton:some View {
         VStack{
             
-            TextField("Age",text: $age)
+            TextField("Age", value: $age, format: .number)
                 .padding(.horizontal)
                 .foregroundColor(.primary)
                 .frame(height:45)
@@ -206,7 +208,7 @@ extension CalculatorView {
                 .font(.title)
                 .keyboardType(.decimalPad)
             
-            TextField("Height",text: $height)
+            TextField("Height", value: $height, format: .number)
                 .padding(.horizontal)
                 .frame(height:45)
                 .background(Color.secondary.opacity( 0.6))
@@ -215,7 +217,7 @@ extension CalculatorView {
                 .keyboardType(.decimalPad)
                 .foregroundColor(Color.primary)
             
-            TextField("Weight",text: $weight)
+            TextField("Weight", value: $weight, format: .number)
                 .foregroundColor(.primary)
                 .padding(.horizontal)
                 .frame(height:45)
@@ -224,7 +226,6 @@ extension CalculatorView {
                 .font(.title)
                 .foregroundColor(.primary)
                 .keyboardType(.decimalPad)
-            
             
             Picker(
                 selection:$gender,
@@ -288,7 +289,7 @@ extension CalculatorView {
     
     private var TargetUserKcalSection:some View{
         VStack{
-            TextField("Insert kcal directly",text: $userTargetKcal)
+            TextField("Insert kcal directly", value: $userTargetKcal, format: .number)
                 .padding(.horizontal)
                 .frame(height:40)
                 .foregroundColor(.primary)

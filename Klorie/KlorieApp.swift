@@ -9,10 +9,13 @@ import SwiftUI
 
 @main
 struct KlorieApp: App {
-   
+    @StateObject private var dataController = DataController()
+
     var body: some Scene {
         WindowGroup {
             TabBarView()
+            CalculatorView()
+                .environment(\.managedObjectContext, dataController.container.viewContext)
                 
                 
         }
