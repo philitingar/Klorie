@@ -5,17 +5,17 @@
 //  Created by Timea Bartha on 12/4/23.
 //
 import SwiftUI
+import CoreData
 
 struct TabBarView: View {
     @StateObject var tabData = TabBarViewModel()
     
-    init(){
-      // UITabBar.appearance().isHidden = true
-       // UITabBar.appearance().isTranslucent = false
-       // UITabBar.appearance().barTintColor = UIColor.red
-   }
-    
+   
+    @StateObject private var dataController = DataController()
+
     @Namespace var animation
+    @Environment(\.managedObjectContext) var moc //environment property to store our managed object context:
+
     
     private var fillImage: String {
         tabData.cuurentTab + ".fill"
@@ -31,6 +31,7 @@ struct TabBarView: View {
             
             CalculatorView()
                 .tag("Calculator")
+                .environment(\.managedObjectContext, dataController.container.viewContext)
         }
         .overlay(
             HStack{

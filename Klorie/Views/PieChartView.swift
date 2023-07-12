@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 @available(OSX 10.15, *)
 public struct PieChartView: View {
@@ -20,6 +21,11 @@ public struct PieChartView: View {
     public var innerRadiusFraction: CGFloat
     
     @State private var activeIndex: Int = -1
+    
+    @Environment(\.managedObjectContext) var moc
+ //   @FetchRequest var userKcal: FetchedResults<User>
+
+
     
     var slices: [PieSliceData] {
         let sum = values.reduce(0, +)
@@ -43,6 +49,7 @@ public struct PieChartView: View {
         self.backgroundColor = backgroundColor
         self.widthFraction = widthFraction
         self.innerRadiusFraction = innerRadiusFraction
+        
     }
     
     public var body: some View {

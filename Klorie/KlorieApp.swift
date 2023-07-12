@@ -14,10 +14,7 @@ struct KlorieApp: App {
     var body: some Scene {
         WindowGroup {
             TabBarView()
-            CalculatorView()
                 .environment(\.managedObjectContext, dataController.container.viewContext)
-                
-                
         }
     }
 }
