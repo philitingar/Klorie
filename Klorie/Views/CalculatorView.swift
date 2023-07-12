@@ -65,11 +65,8 @@ struct CalculatorView: View {
                             kcalCalculator(gender: gender,
                                            activity: activity)
                             showAlert.toggle()
-                            let newUser = User(context: moc)
-                            newUser.age = Int16(age)
-                            newUser.height = Int16(height)
-                            newUser.weight = weight
-                            newUser.userDailyCal = Int16(userDailyCal)
+                            
+                            
                             
                         } label: {
                             Text("Calculate")
@@ -155,11 +152,19 @@ struct CalculatorView: View {
             
             userDailyCal = Int(weightLossKcal)
             //        vm.addKcal(kcal: vm.userDailyCal)
+            let newUser = User(context: moc)
+            newUser.age = Int16(age)
+            newUser.height = Int16(height)
+            newUser.weight = weight
+            newUser.userDailyCal = Int16(userDailyCal)
+            
+            try? moc.save()
+            print(newUser.userDailyCal)
         }
     }
     
     func textFieldisValid() -> Bool {
-        if(age > 0 || weight > 0 || height > 0){
+        if(age == 0 || weight == 0 || height == 0){
             return false
         }
         return true
@@ -197,35 +202,44 @@ extension CalculatorView {
     }
     
     private var TextFieldInputsCalcButton:some View {
-        VStack{
-            
-            TextField("Age", value: $age, format: .number)
-                .padding(.horizontal)
-                .foregroundColor(.primary)
-                .frame(height:45)
-                .background(Color.secondary.opacity( 0.6))
-                .cornerRadius(10)
-                .font(.title)
-                .keyboardType(.decimalPad)
-            
-            TextField("Height", value: $height, format: .number)
-                .padding(.horizontal)
-                .frame(height:45)
-                .background(Color.secondary.opacity( 0.6))
-                .cornerRadius(10)
-                .font(.title)
-                .keyboardType(.decimalPad)
-                .foregroundColor(Color.primary)
-            
-            TextField("Weight", value: $weight, format: .number)
-                .foregroundColor(.primary)
-                .padding(.horizontal)
-                .frame(height:45)
-                .background(Color.secondary.opacity( 0.6))
-                .cornerRadius(10)
-                .font(.title)
-                .foregroundColor(.primary)
-                .keyboardType(.decimalPad)
+        VStack {
+            Section {
+                TextField("Age", value: $age, format: .number)
+                    .padding(.horizontal)
+                    .foregroundColor(.primary)
+                    .frame(height:45)
+                    .background(Color.secondary.opacity( 0.6))
+                    .cornerRadius(10)
+                    .font(.title)
+                    .keyboardType(.decimalPad)
+            } header: {
+                Text("Age")
+            }
+            Section {
+                TextField("Height", value: $height, format: .number)
+                    .padding(.horizontal)
+                    .frame(height:45)
+                    .background(Color.secondary.opacity( 0.6))
+                    .cornerRadius(10)
+                    .font(.title)
+                    .keyboardType(.decimalPad)
+                    .foregroundColor(Color.primary)
+            } header: {
+                Text("Height")
+            }
+            Section {
+                TextField("Weight", value: $weight, format: .number)
+                    .foregroundColor(.primary)
+                    .padding(.horizontal)
+                    .frame(height:45)
+                    .background(Color.secondary.opacity( 0.6))
+                    .cornerRadius(10)
+                    .font(.title)
+                    .foregroundColor(.primary)
+                    .keyboardType(.decimalPad)
+            } header: {
+                Text("Weight")
+            }
             
             Picker(
                 selection:$gender,
@@ -246,6 +260,7 @@ extension CalculatorView {
                 Text("Choose your activity :")
                     .font(.headline)
                     .foregroundColor(.primary)
+                    
                 Picker(
                     selection:$activity,
                     label:Text("Activity"),
@@ -253,6 +268,7 @@ extension CalculatorView {
                         ForEach(activitySelection.indices,id:\.self){ index in
                             Text(activitySelection[index])
                                 .tag(activitySelection[index])
+                                .foregroundColor(.primary)
                             
                         }
                     })
@@ -272,6 +288,7 @@ extension CalculatorView {
                         ForEach(weightLossSelection.indices,id:\.self){ index in
                             Text(weightLossSelection[index])
                                 .tag(weightLossSelection[index])
+                                .foregroundColor(.primary)
                             
                         }
                     })
