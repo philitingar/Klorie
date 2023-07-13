@@ -87,7 +87,6 @@ struct CalculatorView: View {
                         }, message: {
                             Text("\(userDailyCal) kcal")
                         })
-                        TargetUserKcalSection
                     }
                     .padding()
                     Spacer()
@@ -303,29 +302,6 @@ extension CalculatorView {
             
         }
     }
-    
-    private var TargetUserKcalSection:some View{
-        VStack{
-            TextField("Insert kcal directly", value: $userTargetKcal, format: .number)
-                .padding(.horizontal)
-                .frame(height:40)
-                .foregroundColor(.primary)
-                .background(Color.secondary.opacity(0.6))
-                .cornerRadius(10)
-                .font(.headline)
-                .keyboardType(.decimalPad)
-            if directKcalTextFieldValidation(){
-                Button {
-                    
-                    
-                }label: {
-                    Image(systemName:"checkmark")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width:25,height: 20)
-                }
-            }
-        }
-    }
+
     
 }
