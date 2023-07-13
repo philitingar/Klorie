@@ -16,7 +16,7 @@ extension View{
 struct CalculatorView: View {
     
     @Environment(\.managedObjectContext) var moc //environment property to store our managed object context:
-    
+    @Environment(\.colorScheme) var colorScheme
     
     @State var age = 0
     @State var height = 0
@@ -273,7 +273,7 @@ extension CalculatorView {
                         }
                     })
                 .pickerStyle(MenuPickerStyle())
-                .tint(.white)
+                .tint(colorScheme == .dark ? .white : .black)
             }
             .frame(maxWidth:.infinity)
             
@@ -293,7 +293,7 @@ extension CalculatorView {
                         }
                     })
                 .pickerStyle(MenuPickerStyle())
-                .tint(.white)
+                .tint(colorScheme == .dark ? .white : .black)
             }
             .frame(maxWidth:.infinity)
 

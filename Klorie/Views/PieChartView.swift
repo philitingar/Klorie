@@ -23,7 +23,8 @@ public struct PieChartView: View {
     @State private var activeIndex: Int = -1
     
     @Environment(\.managedObjectContext) var moc
- //   @FetchRequest var userKcal: FetchedResults<User>
+  //  @FetchRequest(sortDescriptors: [])
+  //  private var userKcal: FetchedResults<User>
 
 
     
