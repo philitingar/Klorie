@@ -10,8 +10,7 @@ import CoreData
 struct TabBarView: View {
     @StateObject var tabData = TabBarViewModel()
     
-   
-    @StateObject private var dataController = DataController()
+    let dataController = DataController.shared
 
     @Namespace var animation
     @Environment(\.managedObjectContext) var moc //environment property to store our managed object context:
@@ -25,9 +24,11 @@ struct TabBarView: View {
         TabView(selection: $tabData.cuurentTab){
             HomeView()
                 .tag("Home")
+                .environment(\.managedObjectContext, dataController.container.viewContext)
             
             DiaryView()
                 .tag("Diary")
+                .environment(\.managedObjectContext, dataController.container.viewContext)
             
             CalculatorView()
                 .tag("Calculator")

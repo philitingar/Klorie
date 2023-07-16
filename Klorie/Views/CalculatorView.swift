@@ -18,10 +18,12 @@ struct CalculatorView: View {
     @Environment(\.managedObjectContext) var moc //environment property to store our managed object context:
     @Environment(\.colorScheme) var colorScheme
     
+    @FetchRequest(sortDescriptors: [])
+    private var users: FetchedResults<User>
+
     @State var age = 0
     @State var height = 0
     @State var weight = 0.0
-    @State var userTargetKcal = 0
     
     @State var gender:String = "Male"
     @State var activity:String = "Sedentary"
@@ -49,6 +51,7 @@ struct CalculatorView: View {
         UIColor(Color.secondary)
         
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(.primary)]
+ 
     }
     
     
@@ -65,9 +68,6 @@ struct CalculatorView: View {
                             kcalCalculator(gender: gender,
                                            activity: activity)
                             showAlert.toggle()
-                            
-                            
-                            
                         } label: {
                             Text("Calculate")
                                 .foregroundColor(.primary)
@@ -83,7 +83,6 @@ struct CalculatorView: View {
                         }
                         .disabled(!textFieldisValid())
                         .alert("Recommended daily calories:", isPresented: $showAlert, actions: {
-                            
                         }, message: {
                             Text("\(userDailyCal) kcal")
                         })
@@ -157,8 +156,12 @@ struct CalculatorView: View {
             newUser.weight = weight
             newUser.userDailyCal = Int16(userDailyCal)
             
-            try? moc.save()
-            print(newUser.userDailyCal)
+            do {
+                try moc.save()
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
         }
     }
     
@@ -169,12 +172,7 @@ struct CalculatorView: View {
         return true
     }
     
-    func directKcalTextFieldValidation() -> Bool {
-        if(userTargetKcal > 0) {
-            return false
-        }
-        return true
-    }
+    
 }
 
 struct CalculatorView_Previews: PreviewProvider {
@@ -239,6 +237,13 @@ extension CalculatorView {
             } header: {
                 Text("Weight")
             }
+            ForEach(users) { user in
+                Text("\(user.age)")
+                    .padding(.horizontal)
+                    .font(.title)
+            }
+
+            
             
             Picker(
                 selection:$gender,

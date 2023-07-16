@@ -9,13 +9,17 @@ import Foundation
 import CoreData
 
 class DataController: ObservableObject {
-    let container = NSPersistentContainer(name: "KlorieDataModel")
+    let container: NSPersistentContainer
+    static let shared = DataController()
+
     init() {
-        container.loadPersistentStores { description, error in
+        container = NSPersistentContainer(name: "KlorieDataModel")
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error {
                 print("Core data failed to lead: \(error.localizedDescription)")
             }
-        }
+        })
+        container.viewContext.automaticallyMergesChangesFromParent = true
     }
 }
 

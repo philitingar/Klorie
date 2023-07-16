@@ -23,9 +23,8 @@ public struct PieChartView: View {
     @State private var activeIndex: Int = -1
     
     @Environment(\.managedObjectContext) var moc
-  //  @FetchRequest(sortDescriptors: [])
-  //  private var userKcal: FetchedResults<User>
-
+    @FetchRequest( sortDescriptors: [])
+    private var users: FetchedResults<User>
 
     
     var slices: [PieSliceData] {
@@ -106,6 +105,8 @@ public struct PieChartView: View {
                     }.padding(30)
                     
                     PieChartRows(colors: self.colors, names: self.names, values: self.values.map { self.formatter($0) }, percents: self.values.map { String(format: "%.0f%%", $0 * 100 / self.values.reduce(0, +)) })
+                    
+
                 }
                 
                 .foregroundColor(Color.primary.opacity(0.0))

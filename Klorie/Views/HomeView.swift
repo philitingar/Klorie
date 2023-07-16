@@ -6,14 +6,18 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct HomeView: View {
 
+    let dataController = DataController.shared
+    @Environment(\.managedObjectContext) var moc //environment property to store our managed object context:
+ 
     var body: some View {
-        
         HStack {
             VStack {
                 NutrientsView()
+                    .environment(\.managedObjectContext, dataController.container.viewContext)
             }
             
         }
