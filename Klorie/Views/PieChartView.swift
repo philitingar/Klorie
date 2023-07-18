@@ -95,7 +95,7 @@ public struct PieChartView: View {
                                 .font(.title)
                                 .bold()
                                 .foregroundColor(Color.primary)
-                            ForEach(users.prefix(1)) { user in
+                            if let user = users.first {
                                 Text("\(user.userDailyCal) kcal")
                                     .padding(.horizontal)
                                     .font(.title)
@@ -164,7 +164,7 @@ struct PieChartRows: View {
 @available(OSX 10.15.0, *)
 struct PieChartView_Previews: PreviewProvider {
     static var previews: some View {
-        PieChartView(values: [1300, 500, 300], names: ["Rent", "Transport", "Education"], formatter: {value in String(format: "$%.2f", value)})
+        PieChartView(values: [1300, 500, 300], names: ["Carbs", "Proteins", "Fats"], formatter: {value in String(format: "%.0f kcal", value)})
     }
 }
 
