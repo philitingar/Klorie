@@ -23,7 +23,7 @@ public struct PieChartView: View {
     @State private var activeIndex: Int = -1
     
     @Environment(\.managedObjectContext) var moc
-    @FetchRequest( sortDescriptors: [])
+    @FetchRequest(sortDescriptors: [])
     private var users: FetchedResults<User>
 
     
@@ -58,8 +58,6 @@ public struct PieChartView: View {
                     ZStack {
                         ForEach(0..<self.values.count) { i in
                             PieSlice(pieSliceData: self.slices[i])
-                               // .scaleEffect(self.activeIndex == i ? 1.03 : 1)
-                               // .animation(Animation.spring())
                         }
                         .frame(width: widthFraction * geometry.size.width, height: widthFraction * geometry.size.width)
                         .gesture(
@@ -93,8 +91,18 @@ public struct PieChartView: View {
                         
                         
                         VStack {
-                            Text(self.activeIndex == -1 ? "Total" : names[self.activeIndex])
+                            Text(self.activeIndex == -1 ? "Total:" : names[self.activeIndex])
                                 .font(.title)
+                                .bold()
+                                .foregroundColor(Color.primary)
+                            ForEach(users.prefix(1)) { user in
+                                Text("\(user.userDailyCal) kcal")
+                                    .padding(.horizontal)
+                                    .font(.title)
+                                    .foregroundColor(Color.primary)
+                            }
+                            Text("Of which consumed:")
+                                .font(.caption)
                                 .bold()
                                 .foregroundColor(Color.primary)
                             Text(self.formatter(self.activeIndex == -1 ? values.reduce(0, +) : values[self.activeIndex]))

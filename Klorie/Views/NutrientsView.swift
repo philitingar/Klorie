@@ -28,11 +28,11 @@ struct NutrientsView: View {
             )
             .environment(\.managedObjectContext, dataController.container.viewContext)
             
-            ForEach(users) { user in
-                Text("\(user.age)")
-                    .padding(.horizontal)
-                    .font(.title)
-            }
+//            ForEach(users) { user in
+//                Text("\(user.age)")
+//                    .padding(.horizontal)
+//                    .font(.title)
+//            }
         }
                     
     }

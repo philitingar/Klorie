@@ -238,7 +238,7 @@ extension CalculatorView {
                 Text("Weight")
             }
             ForEach(users) { user in
-                Text("\(user.age)")
+                Text("\(user.userDailyCal)")
                     .padding(.horizontal)
                     .font(.title)
             }
