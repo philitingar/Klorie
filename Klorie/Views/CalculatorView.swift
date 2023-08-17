@@ -149,7 +149,7 @@ struct CalculatorView: View {
             }
             
             userDailyCal = Int(weightLossKcal)
-            //        vm.addKcal(kcal: vm.userDailyCal)
+            
             let newUser = User(context: moc)
             newUser.age = Int16(age)
             newUser.height = Int16(height)
@@ -237,11 +237,11 @@ extension CalculatorView {
             } header: {
                 Text("Weight")
             }
-            ForEach(users) { user in
-                Text("\(user.userDailyCal)")
-                    .padding(.horizontal)
-                    .font(.title)
-            }
+//            ForEach(users) { user in
+//               Text("\(user.userDailyCal)")
+//                    .padding(.horizontal)
+//                    .font(.title)
+//            }
 
             
             

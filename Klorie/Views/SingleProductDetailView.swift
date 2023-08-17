@@ -6,6 +6,7 @@
 // let productresponse = try? JSONDecoder().decode(ProductResponse.self, from: jsonData)
 import Combine
 import SwiftUI
+import CoreData
 
 
 
@@ -34,6 +35,10 @@ struct SingleProductDetailView: View {
         "d": Color.orange,
         "e": Color.red
     ]
+    
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(sortDescriptors: [])
+    private var users: FetchedResults<User>
  
     var body: some View {
         
@@ -58,6 +63,7 @@ struct SingleProductDetailView: View {
                                     self.protein = (product.data.nutriments.proteins100G ?? 0.0/100) * newValue
                                     self.carbs = (product.data.nutriments.carbohydrates100G ?? 0.0/100) * newValue
                                     
+                                   
                                 })
                             
                             HStack {
@@ -138,6 +144,20 @@ struct SingleProductDetailView: View {
             self.calories = loadedProduct.data.nutriments.energyKcal100G ?? 0.0
             self.nutriScore = loadedProduct.data.nutriscoreData?.grade ?? "0"
             
+            //svaae product /100
+            
+            let newProduct = Product(context: moc)
+            newProduct.fat100g = Double(fat)
+            newProduct.protein100g = Double(protein)
+            newProduct.carbs100g = Double(carbs)
+            newProduct.kcal100g = Double(calories)
+            
+//            do {
+//                try moc.save()
+ //           } catch {
+ //               let nsError = error as NSError
+//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+//            }
             
         }.resume()
     }
