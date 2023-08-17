@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CodeScanner
 
 struct GrowingButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
