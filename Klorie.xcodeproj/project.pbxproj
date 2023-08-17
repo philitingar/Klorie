@@ -23,12 +23,15 @@
 		268A4D9C29F94EF5002DECFE /* CalculatorInfoSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268A4D9B29F94EF5002DECFE /* CalculatorInfoSheetView.swift */; };
 		268A4DA52A013F49002DECFE /* PieSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268A4DA42A013F49002DECFE /* PieSliceView.swift */; };
 		268A4DA72A013F6B002DECFE /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 268A4DA62A013F6B002DECFE /* PieChartView.swift */; };
+		26AB2BD62A8E47190094D111 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 26AB2BD52A8E47190094D111 /* CodeScanner */; };
 		26BAEDED29E59DA000FD2AF8 /* CalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BAEDEC29E59DA000FD2AF8 /* CalculatorView.swift */; };
 		26C4B54E2A0932F4006C9EB5 /* ItemSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C4B54D2A0932F4006C9EB5 /* ItemSearchView.swift */; };
 		26C4B5502A09341A006C9EB5 /* helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C4B54F2A09341A006C9EB5 /* helper.swift */; };
 		26C4B5522A0944F6006C9EB5 /* BarcodeScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C4B5512A0944F6006C9EB5 /* BarcodeScannerView.swift */; };
 		26C4B55A2A0A9722006C9EB5 /* SingleProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C4B5592A0A9722006C9EB5 /* SingleProductDetailView.swift */; };
 		26C4B56E2A1CEC24006C9EB5 /* NutriscoreInfoSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C4B56D2A1CEC24006C9EB5 /* NutriscoreInfoSheetView.swift */; };
+		26D23A012A827BFA003CBCAC /* BarcodeOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D23A002A827BFA003CBCAC /* BarcodeOverlay.swift */; };
+		26D23A032A827C5B003CBCAC /* VideoCaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D23A022A827C5B003CBCAC /* VideoCaptureView.swift */; };
 		26EC82DE2A0264D7001C1B32 /* SearchResults.json in Resources */ = {isa = PBXBuildFile; fileRef = 26EC82DD2A0264D7001C1B32 /* SearchResults.json */; };
 		26EC82E02A026F05001C1B32 /* SingleProduct.json in Resources */ = {isa = PBXBuildFile; fileRef = 26EC82DF2A026F05001C1B32 /* SingleProduct.json */; };
 		26EC82E22A028DB4001C1B32 /* ProductSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EC82E12A028DB4001C1B32 /* ProductSearchResult.swift */; };
@@ -79,6 +82,8 @@
 		26C4B5512A0944F6006C9EB5 /* BarcodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeScannerView.swift; sourceTree = "<group>"; };
 		26C4B5592A0A9722006C9EB5 /* SingleProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleProductDetailView.swift; sourceTree = "<group>"; };
 		26C4B56D2A1CEC24006C9EB5 /* NutriscoreInfoSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriscoreInfoSheetView.swift; sourceTree = "<group>"; };
+		26D23A002A827BFA003CBCAC /* BarcodeOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarcodeOverlay.swift; sourceTree = "<group>"; };
+		26D23A022A827C5B003CBCAC /* VideoCaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCaptureView.swift; sourceTree = "<group>"; };
 		26EC82DD2A0264D7001C1B32 /* SearchResults.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SearchResults.json; sourceTree = "<group>"; };
 		26EC82DF2A026F05001C1B32 /* SingleProduct.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SingleProduct.json; sourceTree = "<group>"; };
 		26EC82E12A028DB4001C1B32 /* ProductSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchResult.swift; sourceTree = "<group>"; };
@@ -91,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26AB2BD62A8E47190094D111 /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,7 +197,7 @@
 				2680536B2A4B30A00078554F /* AddProductView.swift */,
 				26C4B54D2A0932F4006C9EB5 /* ItemSearchView.swift */,
 				26C4B5592A0A9722006C9EB5 /* SingleProductDetailView.swift */,
-				26C4B5512A0944F6006C9EB5 /* BarcodeScannerView.swift */,
+				26D23A042A827D7C003CBCAC /* Barcode scanner */,
 				268A4D9B29F94EF5002DECFE /* CalculatorInfoSheetView.swift */,
 				26C4B56D2A1CEC24006C9EB5 /* NutriscoreInfoSheetView.swift */,
 				268A4DA42A013F49002DECFE /* PieSliceView.swift */,
@@ -219,6 +225,16 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		26D23A042A827D7C003CBCAC /* Barcode scanner */ = {
+			isa = PBXGroup;
+			children = (
+				26C4B5512A0944F6006C9EB5 /* BarcodeScannerView.swift */,
+				26D23A002A827BFA003CBCAC /* BarcodeOverlay.swift */,
+				26D23A022A827C5B003CBCAC /* VideoCaptureView.swift */,
+			);
+			path = "Barcode scanner";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -236,6 +252,7 @@
 			);
 			name = Klorie;
 			packageProductDependencies = (
+				26AB2BD52A8E47190094D111 /* CodeScanner */,
 			);
 			productName = Klorie;
 			productReference = 266F679A29DDD06200A2A92C /* Klorie.app */;
@@ -310,6 +327,7 @@
 			);
 			mainGroup = 266F679129DDD06200A2A92C;
 			packageReferences = (
+				26AB2BD42A8E47190094D111 /* XCRemoteSwiftPackageReference "CodeScanner" */,
 			);
 			productRefGroup = 266F679B29DDD06200A2A92C /* Products */;
 			projectDirPath = "";
@@ -358,6 +376,8 @@
 				268A4DA72A013F6B002DECFE /* PieChartView.swift in Sources */,
 				26C4B54E2A0932F4006C9EB5 /* ItemSearchView.swift in Sources */,
 				26EC82E72A03E4CC001C1B32 /* KlorieDataModel.xcdatamodeld in Sources */,
+				26D23A032A827C5B003CBCAC /* VideoCaptureView.swift in Sources */,
+				26D23A012A827BFA003CBCAC /* BarcodeOverlay.swift in Sources */,
 				26C4B5502A09341A006C9EB5 /* helper.swift in Sources */,
 				26567D1329E6BD0F003DAD3B /* TabBarViewModel.swift in Sources */,
 				268053702A4DCD8C0078554F /* DataController.swift in Sources */,
@@ -702,6 +722,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		26AB2BD42A8E47190094D111 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		26AB2BD52A8E47190094D111 /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 26AB2BD42A8E47190094D111 /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		26EC82E52A03E4CC001C1B32 /* KlorieDataModel.xcdatamodeld */ = {
